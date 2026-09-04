@@ -1,0 +1,267 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  basicTimeStep 1
+  FPS 30
+}
+Viewpoint {
+  orientation 0.30991274445190325 -0.8484748677372882 0.4290040671654297 0.08636600932388391
+  position 0.12601909998209884 0.26463710240488064 1.599815529115289
+}
+Background {
+  skyColor [
+    0.741176 0.741176 0.741176
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction 0.1 -0.5 0.3
+}
+RectangleArena {
+}
+Robot {
+  translation -3.85096e-07 0.55 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    DEF AbAd HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.05 0
+      }
+      device [
+        PositionSensor {
+          name "encoder1"
+        }
+        RotationalMotor {
+          name "motor1"
+          maxVelocity 100
+          maxTorque 30
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.08 -0.02
+        rotation 0.5773488262358827 0.5773507945303318 0.5773511867998914 2.094399617724146
+        children [
+          DEF HipMotor Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.666667 1
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.03
+              radius 0.06
+            }
+          }
+          DEF Hip HingeJoint {
+            jointParameters HingeJointParameters {
+              position -0.8
+              axis 0 1 0
+              anchor 0 0.02 0
+            }
+            device [
+              RotationalMotor {
+                name "motor2"
+                maxTorque 30
+              }
+              PositionSensor {
+                name "encoder2"
+              }
+            ]
+            endPoint Solid {
+              translation -1.1770355866260163e-06 0.04000001331824374 4.5572801642104485e-07
+              rotation 1.6611911712174782e-08 -0.9999999999999996 2.395603119682629e-08 0.8000175797688001
+              children [
+                DEF KneeMotor Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 1
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.03
+                    radius 0.06
+                  }
+                }
+                DEF UpLeg Transform {
+                  translation 0 0 0.12
+                  children [
+                    Solid {
+                      children [
+                        DEF UpLeg Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 1
+                            roughness 1
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.05 0.03 0.1
+                          }
+                        }
+                      ]
+                      name "solid(1)"
+                      boundingObject USE UpLeg
+                      physics Physics {
+                        mass 0.2
+                      }
+                    }
+                  ]
+                }
+                DEF Knee HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 1.1
+                    axis 0 1 0
+                    anchor 0 0 0.2
+                  }
+                  device [
+                    RotationalMotor {
+                      name "motor3"
+                      maxTorque 30
+                    }
+                    PositionSensor {
+                      name "encoder3"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 4.4853607914137214e-06 2.165594092939926e-13 0.20000095187722786
+                    rotation -1.7575352691065555e-12 1 -7.602282170618575e-13 1.1000072881151344
+                    children [
+                      DEF LowerLeg Transform {
+                        translation 0 0 0.09
+                        children [
+                          Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0.333333 0
+                            }
+                            geometry Box {
+                              size 0.03 0.03 0.15
+                            }
+                          }
+                        ]
+                      }
+                      DEF FootSolid Solid {
+                        translation 0 0 0.2
+                        children [
+                          TouchSensor {
+                            children [
+                              DEF FootSensor Shape {
+                                appearance PBRAppearance {
+                                  transparency 0.5
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Sphere {
+                                  radius 0.025
+                                  subdivision 3
+                                }
+                              }
+                            ]
+                            name "FootSensor"
+                            boundingObject USE FootSensor
+                            physics Physics {
+                              density 1
+                            }
+                            type "force-3d"
+                            lookupTable []
+                          }
+                          DEF FootShape Shape {
+                            appearance PBRAppearance {
+                              baseColor 0.333333 0.666667 1
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry Sphere {
+                              radius 0.02
+                            }
+                          }
+                        ]
+                        name "sensor"
+                        boundingObject USE FootShape
+                        physics Physics {
+                          density -1
+                          mass 0.001
+                        }
+                      }
+                    ]
+                    boundingObject USE LowerLeg
+                    physics Physics {
+                      mass 0.2
+                    }
+                  }
+                }
+              ]
+              boundingObject USE KneeMotor
+              physics Physics {
+                density -1
+                mass 0.6
+              }
+            }
+          }
+        ]
+        boundingObject USE HipMotor
+        physics Physics {
+        }
+      }
+    }
+    DEF AbAdMotor Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.03
+        radius 0.02
+      }
+    }
+  ]
+  boundingObject USE AbAdMotor
+  controller "TrajectoryController"
+}
+Solid {
+  translation 0.44 0.13 -0.69
+  children [
+    DEF Wall Shape {
+      appearance PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.03 0.7 0.5
+      }
+    }
+  ]
+  boundingObject USE Wall
+}
+Solid {
+  translation 0.125 0.11062 0
+  rotation 0 0 -1 -1.5708053071795867
+  children [
+    DEF Wall Shape {
+      appearance PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.03 0.7 0.5
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE Wall
+}
+Solid {
+  translation -0.42 0.13 0
+  children [
+    DEF Wall Shape {
+      appearance PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.03 0.7 0.5
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE Wall
+}

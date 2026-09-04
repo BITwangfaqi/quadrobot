@@ -1,0 +1,842 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 1
+  FPS 30
+}
+Viewpoint {
+  orientation -0.17504766659106885 0.29839530129863767 0.9382529288970631 1.081714369738847
+  position -0.9424608618072811 -1.4876760261219808 1.050543512362002
+}
+TexturedBackgroundLight {
+}
+Background {
+  skyColor [
+    0.843137 0.843137 0.843137
+  ]
+}
+RectangleArena {
+  translation 0 0 0.08
+  rotation 0 0 1 1.5707963267948966
+  floorSize 20 20
+  floorTileSize 1 1
+}
+Robot {
+  translation 0 0 0.49
+  rotation 0.5773489358550934 0.57735193585476 -0.5773499358549822 2.094395307179586
+  children [
+    DEF Front Solid {
+      translation 0 0 0.16
+      children [
+        DEF Front Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE Front
+      physics Physics {
+        mass 0.001
+      }
+    }
+    DEF FR_abad_motor Solid {
+      translation 0 -0.1 0.17
+      children [
+        DEF FR_abad_motor HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+          }
+          device [
+            PositionSensor {
+              name "FR_abad_encoder"
+            }
+            RotationalMotor {
+              name "FR_abad_motor"
+              maxTorque 100
+            }
+          ]
+          endPoint Solid {
+            translation 0 0.01999999999999999 0.07999999999999981
+            rotation 1 0 0 1.5707953071795824
+            children [
+              DEF FR_hip_motor HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -0.5
+                  axis 0 0 1
+                }
+                device [
+                  RotationalMotor {
+                    name "FR_hip_motor"
+                    maxTorque 100
+                  }
+                  PositionSensor {
+                    name "FR_hip_encoder"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0 0 0.03999999999999679
+                  rotation 0 0 -1 0.5000000000000004
+                  children [
+                    DEF FR_knee_motor HingeJoint {
+                      jointParameters HingeJointParameters {
+                        position 1
+                        axis 0 0 1
+                        anchor 0.2 0 0
+                      }
+                      device [
+                        RotationalMotor {
+                          name "FR_knee_motor"
+                          maxTorque 100
+                        }
+                        PositionSensor {
+                          name "FR_knee_encoder"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.20000284311545086 0 0
+                        rotation 0 0 1 1
+                        children [
+                          DEF FR_foot Solid {
+                            translation 0.2 0 0
+                            children [
+                              TouchSensor {
+                                children [
+                                  DEF FR_foot_sensor Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 1 0 0
+                                      transparency 0.9
+                                      roughness 1
+                                      metalness 0
+                                    }
+                                    geometry Sphere {
+                                      radius 0.03
+                                      subdivision 2
+                                    }
+                                  }
+                                ]
+                                name "FR_foot_sensor"
+                                boundingObject USE FR_foot_sensor
+                                physics Physics {
+                                  mass 0.001
+                                }
+                              }
+                              DEF FR_foot Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Sphere {
+                                  radius 0.025
+                                  subdivision 2
+                                }
+                              }
+                            ]
+                            boundingObject USE FR_foot
+                            physics Physics {
+                              mass 0.001
+                            }
+                          }
+                          DEF FR_lower_leg Transform {
+                            translation 0.09 0 0
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Box {
+                                  size 0.15 0.03 0.03
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE FR_lower_leg
+                        physics Physics {
+                          mass 0.2
+                        }
+                      }
+                    }
+                    DEF FR_up_leg Solid {
+                      translation 0.12 0 0
+                      children [
+                        DEF FR_up_leg Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 1
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.1 0.05 0.03
+                          }
+                        }
+                      ]
+                      boundingObject USE FR_up_leg
+                      physics Physics {
+                        mass 0.2
+                      }
+                    }
+                    DEF FR_knee_motor Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.333333 0 0
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.06
+                      }
+                    }
+                  ]
+                  boundingObject USE FR_knee_motor
+                  physics Physics {
+                    mass 0.6
+                  }
+                }
+              }
+              DEF FR_hip_motor Shape {
+                appearance PBRAppearance {
+                  baseColor 0.333333 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.03
+                  radius 0.06
+                }
+              }
+            ]
+            boundingObject USE FR_hip_motor
+            physics Physics {
+              mass 0.6
+            }
+          }
+        }
+        DEF FR_abad_motor Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.03
+            radius 0.02
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE FR_abad_motor
+      physics Physics {
+        mass 0.6
+      }
+    }
+    DEF FL_abad_motor Solid {
+      translation 0 0.1 0.17
+      children [
+        DEF FL_abad_motor HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "FL_abad_motor"
+              maxTorque 100
+            }
+            PositionSensor {
+              name "FL_abad_encoder"
+            }
+          ]
+          endPoint DEF FL_abad_motor Solid {
+            translation 0 -0.019999999999983323 0.07999999999999977
+            rotation 1 0 0 1.5707999999995836
+            children [
+              DEF FL_hip_motor HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -0.5
+                  axis 0 0 1
+                }
+                device [
+                  RotationalMotor {
+                    name "FL_hip_motor"
+                    maxTorque 100
+                  }
+                  PositionSensor {
+                    name "FL_hip_encoder"
+                  }
+                ]
+                endPoint DEF FL_hip_motor Solid {
+                  translation 0 0 -0.03999999999999673
+                  rotation 0 0 -1 0.5000000000000004
+                  children [
+                    DEF FL_knee_motor HingeJoint {
+                      jointParameters HingeJointParameters {
+                        position 1
+                        axis 0 0 1
+                        anchor 0.2 0 0
+                      }
+                      device [
+                        RotationalMotor {
+                          name "FL_knee_motor"
+                          maxTorque 100
+                        }
+                        PositionSensor {
+                          name "FL_knee_encoder"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.2 0 0
+                        rotation 0 0 1 1
+                        children [
+                          DEF FL_foot Solid {
+                            translation 0.2 0 0
+                            children [
+                              TouchSensor {
+                                children [
+                                  DEF FL_foot_sensor Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 1 0 0
+                                      transparency 0.9
+                                      roughness 1
+                                      metalness 0
+                                    }
+                                    geometry Sphere {
+                                      radius 0.03
+                                      subdivision 2
+                                    }
+                                  }
+                                ]
+                                name "FL_foot_sensor"
+                                boundingObject USE FL_foot_sensor
+                                physics Physics {
+                                  mass 0.001
+                                }
+                              }
+                              DEF FL_foot Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Sphere {
+                                  radius 0.025
+                                  subdivision 2
+                                }
+                              }
+                            ]
+                            boundingObject USE FL_foot
+                            physics Physics {
+                              mass 0.001
+                            }
+                          }
+                          DEF FL_lower_leg Transform {
+                            translation 0.09 0 0
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Box {
+                                  size 0.15 0.03 0.03
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE FL_lower_leg
+                        physics Physics {
+                          mass 0.2
+                        }
+                      }
+                    }
+                    DEF FL_up_leg Solid {
+                      translation 0.12 0 0
+                      children [
+                        DEF FL_up_leg Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 1
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.1 0.05 0.03
+                          }
+                        }
+                      ]
+                      boundingObject USE FL_up_leg
+                      physics Physics {
+                        mass 0.2
+                      }
+                    }
+                    DEF FL_hip_motor Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.333333 0 0
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.06
+                      }
+                    }
+                  ]
+                  boundingObject USE FL_hip_motor
+                  physics Physics {
+                    mass 0.6
+                  }
+                }
+              }
+              DEF FL_abad_motor Shape {
+                appearance PBRAppearance {
+                  baseColor 0.333333 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.03
+                  radius 0.06
+                }
+              }
+            ]
+            boundingObject USE FL_abad_motor
+            physics Physics {
+              mass 0.6
+            }
+          }
+        }
+        DEF FL_abad_motor Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.03
+            radius 0.02
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE FL_abad_motor
+      physics Physics {
+        mass 0.6
+      }
+    }
+    DEF BR_abad_motor Solid {
+      translation 0 -0.11 -0.17
+      children [
+        DEF BR_abad_motor HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "BR_abad_motor"
+              maxTorque 100
+            }
+            PositionSensor {
+              name "BR_abad_encoder"
+            }
+          ]
+          endPoint Solid {
+            translation 0 0.01999999999999998 -0.08001599999999987
+            rotation 1 0 0 1.5707999999999984
+            children [
+              DEF BR_hip_motor HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -0.5
+                  axis 0 0 1
+                }
+                device [
+                  RotationalMotor {
+                    name "BR_hip_motor"
+                    maxTorque 100
+                  }
+                  PositionSensor {
+                    name "BR_hip_encoder"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0 0 0.03999999999999673
+                  rotation 0 0 -1 0.5000000000000004
+                  children [
+                    DEF BR_knee_motor HingeJoint {
+                      jointParameters HingeJointParameters {
+                        position 1
+                        axis 0 0 1
+                        anchor 0.2 0 0
+                      }
+                      device [
+                        RotationalMotor {
+                          name "BR_knee_motor"
+                          maxTorque 100
+                        }
+                        PositionSensor {
+                          name "BR_knee_encoder"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.2 0 0
+                        rotation 0 0 1 1
+                        children [
+                          DEF BR_foot Solid {
+                            translation 0.2 0 0
+                            children [
+                              TouchSensor {
+                                children [
+                                  DEF BR_foot_sensor Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 1 0 0
+                                      transparency 0.9
+                                      roughness 1
+                                      metalness 0
+                                    }
+                                    geometry Sphere {
+                                      radius 0.03
+                                      subdivision 2
+                                    }
+                                  }
+                                ]
+                                name "BR_foot_sensor"
+                                boundingObject USE BR_foot_sensor
+                                physics Physics {
+                                  mass 0.001
+                                }
+                              }
+                              DEF BR_foot Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Sphere {
+                                  radius 0.025
+                                  subdivision 2
+                                }
+                              }
+                            ]
+                            boundingObject USE BR_foot
+                            physics Physics {
+                              mass 0.001
+                            }
+                          }
+                          DEF BR_lower_lge Transform {
+                            translation 0.09 0 0
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Box {
+                                  size 0.15 0.03 0.03
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE BR_lower_lge
+                        physics Physics {
+                          mass 0.2
+                        }
+                      }
+                    }
+                    DEF BR_up_leg Solid {
+                      translation 0.12 0 0
+                      children [
+                        DEF BR_up_leg Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 1
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.1 0.05 0.03
+                          }
+                        }
+                      ]
+                      boundingObject USE BR_up_leg
+                      physics Physics {
+                        mass 0.2
+                      }
+                    }
+                    DEF BR_knee_motor Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.333333 0 0
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.06
+                      }
+                    }
+                  ]
+                  boundingObject USE BR_knee_motor
+                  physics Physics {
+                    mass 0.6
+                  }
+                }
+              }
+              DEF BR_hip_motor Shape {
+                appearance PBRAppearance {
+                  baseColor 0.333333 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.03
+                  radius 0.06
+                }
+              }
+            ]
+            boundingObject USE BR_hip_motor
+            physics Physics {
+              mass 0.6
+            }
+          }
+        }
+        DEF BR_abad_motor Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.03
+            radius 0.02
+          }
+        }
+      ]
+      boundingObject USE BR_abad_motor
+      physics Physics {
+        mass 0.6
+      }
+    }
+    DEF BL_abad_motor Solid {
+      translation 0 0.1 -0.17
+      children [
+        DEF BL_abad_motor HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+          }
+          device [
+            PositionSensor {
+              name "BL_abad_encoder"
+            }
+            RotationalMotor {
+              name "BL_abad_motor"
+              maxTorque 100
+            }
+          ]
+          endPoint DEF BL_hip_motor Solid {
+            translation 0 -0.01999999999999997 -0.0799999999999997
+            rotation 1 0 0 1.5707953071795775
+            children [
+              DEF BL_hip_motor HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -0.5
+                  axis 0 0 1
+                }
+                device [
+                  RotationalMotor {
+                    name "BL_hip_motor"
+                    maxTorque 100
+                  }
+                  PositionSensor {
+                    name "BL_hip_encoder"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0 0 -0.03999999999999679
+                  rotation 0 0 -1 0.5000000000000004
+                  children [
+                    DEF BL_knee_motor HingeJoint {
+                      jointParameters HingeJointParameters {
+                        position 1
+                        axis 0 0 1
+                        anchor 0.2 0 0
+                      }
+                      device [
+                        RotationalMotor {
+                          name "BL_knee_motor"
+                          maxTorque 100
+                        }
+                        PositionSensor {
+                          name "BL_knee_encoder"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.2 0 0
+                        rotation 0 0 1 1
+                        children [
+                          DEF BL_foot Solid {
+                            translation 0.2 0 0
+                            children [
+                              TouchSensor {
+                                children [
+                                  DEF BL_foot_sensor Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 1 0 0
+                                      transparency 0.9
+                                      roughness 1
+                                      metalness 0
+                                    }
+                                    geometry Sphere {
+                                      radius 0.03
+                                      subdivision 2
+                                    }
+                                  }
+                                ]
+                                name "BL_foot_sensor"
+                                boundingObject USE BL_foot_sensor
+                                physics Physics {
+                                  mass 0.001
+                                }
+                              }
+                              DEF BL_foot Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Sphere {
+                                  radius 0.025
+                                  subdivision 2
+                                }
+                              }
+                            ]
+                            boundingObject USE BL_foot
+                            physics Physics {
+                              mass 0.001
+                            }
+                          }
+                          DEF BL_lower_leg Transform {
+                            translation 0.09 0 0
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Box {
+                                  size 0.15 0.03 0.03
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE BL_lower_leg
+                        physics Physics {
+                          mass 0.2
+                        }
+                      }
+                    }
+                    DEF BL_up_leg Solid {
+                      translation 0.12 0 0
+                      children [
+                        DEF BL_up_leg Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 1
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.1 0.05 0.03
+                          }
+                        }
+                      ]
+                      boundingObject USE BL_up_leg
+                      physics Physics {
+                        mass 0.2
+                      }
+                    }
+                    DEF BL_knee_motor Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.333333 0 0
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.06
+                      }
+                    }
+                  ]
+                  boundingObject USE BL_knee_motor
+                  physics Physics {
+                    mass 0.6
+                  }
+                }
+              }
+              DEF BL_hip_motor Shape {
+                appearance PBRAppearance {
+                  baseColor 0.333333 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.03
+                  radius 0.06
+                }
+              }
+            ]
+            boundingObject USE BL_hip_motor
+            physics Physics {
+              mass 0.6
+            }
+          }
+        }
+        DEF BL_abad_motor Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.03
+            radius 0.02
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE BL_abad_motor
+      physics Physics {
+        mass 0.6
+      }
+    }
+    DEF Body Shape {
+      appearance PBRAppearance {
+        baseColor 0.180392 0.180392 0.180392
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.24 0.3
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+    mass 4
+  }
+  controller "<extern>"
+}
