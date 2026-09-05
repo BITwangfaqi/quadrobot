@@ -13,8 +13,8 @@ WorldInfo {
   }
 }
 Viewpoint {
-  orientation 0.26284861583092495 -0.027104297225000264 -0.9644563039493835 3.13349767852194
-  position 2.198845327878192 0.3505422756387322 1.0530933788473267
+  orientation 0.0609876046604816 0.006974428599337158 -0.9981141565089084 1.4782256304251236
+  position 0.06270566743204525 1.932858662770774 0.5117052993994913
   follow "Bigdog"
 }
 TexturedBackground {
@@ -297,6 +297,444 @@ DEF can Solid {
 Robot {
   translation 0 0 0.329
   children [
+    Solid {
+      translation 0.07 0 0.059
+      children [
+        Shape {
+          appearance DEF base_link_material PBRAppearance {
+            baseColor 0.792157 0.819608 0.933333
+            roughness 1
+            metalness 0
+          }
+          geometry DEF base_link Mesh {
+            url [
+              "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/base_link.STL"
+            ]
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0 0 0.123
+          }
+          device [
+            RotationalMotor {
+              name "joint1"
+              maxVelocity 5
+              minPosition -2.618
+              maxPosition 2.618
+              maxTorque 100
+            }
+            PositionSensor {
+              name "joint1_sensor"
+            }
+          ]
+          endPoint Solid {
+            translation 0 0 0.123
+            children [
+              Shape {
+                appearance DEF link1_material PBRAppearance {
+                  baseColor 0.792157 0.819608 0.933333
+                  roughness 1
+                  metalness 0
+                }
+                geometry DEF link1 Mesh {
+                  url [
+                    "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link1.STL"
+                  ]
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 7e-06 1 -4e-06
+                }
+                device [
+                  RotationalMotor {
+                    name "joint2"
+                    maxVelocity 5
+                    maxPosition 3.14
+                    maxTorque 100
+                  }
+                  PositionSensor {
+                    name "joint2_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  rotation -0.04806899172285682 -0.7062908783816653 -0.7062878783821819 3.045539
+                  children [
+                    Shape {
+                      appearance DEF link2_material PBRAppearance {
+                        baseColor 0.792157 0.819608 0.933333
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry DEF link2 Mesh {
+                        url [
+                          "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link2.STL"
+                        ]
+                      }
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0 0 1
+                        anchor 0.28503 0 0
+                      }
+                      device [
+                        RotationalMotor {
+                          name "joint3"
+                          maxVelocity 5
+                          minPosition -2.967
+                          maxTorque 100
+                        }
+                        PositionSensor {
+                          name "joint3_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.28503 0 0
+                        rotation 0 0 -1 1.7939
+                        children [
+                          Shape {
+                            appearance DEF link3_material PBRAppearance {
+                              baseColor 0.792157 0.819608 0.933333
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry DEF link3 Mesh {
+                              url [
+                                "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link3.STL"
+                              ]
+                            }
+                          }
+                          HingeJoint {
+                            jointParameters HingeJointParameters {
+                              axis 0 -1 -4e-06
+                              anchor -0.021984 -0.25075 0
+                            }
+                            device [
+                              RotationalMotor {
+                                name "joint4"
+                                maxVelocity 5
+                                minPosition -1.745
+                                maxPosition 1.745
+                                maxTorque 100
+                              }
+                              PositionSensor {
+                                name "joint4_sensor"
+                              }
+                            ]
+                            endPoint Solid {
+                              translation -0.021984 -0.25075 0
+                              rotation 1 0 0 1.5708
+                              children [
+                                Shape {
+                                  appearance DEF link4_material PBRAppearance {
+                                    baseColor 0.792157 0.819608 0.933333
+                                    roughness 1
+                                    metalness 0
+                                  }
+                                  geometry DEF link4 Mesh {
+                                    url [
+                                      "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link4.STL"
+                                    ]
+                                  }
+                                }
+                                HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    axis 0 1 -4e-06
+                                  }
+                                  device [
+                                    RotationalMotor {
+                                      name "joint5"
+                                      maxVelocity 5
+                                      minPosition -1.22
+                                      maxPosition 1.22
+                                      maxTorque 100
+                                    }
+                                    PositionSensor {
+                                      name "joint5_sensor"
+                                    }
+                                  ]
+                                  endPoint Solid {
+                                    rotation -1 0 0 1.5708
+                                    children [
+                                      Shape {
+                                        appearance DEF link5_material PBRAppearance {
+                                          baseColor 0.792157 0.819608 0.933333
+                                          roughness 1
+                                          metalness 0
+                                        }
+                                        geometry DEF link5 Mesh {
+                                          url [
+                                            "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link5.STL"
+                                          ]
+                                        }
+                                      }
+                                      HingeJoint {
+                                        jointParameters HingeJointParameters {
+                                          axis 0 -1 -4e-06
+                                          anchor 8.8e-05 -0.091 0
+                                        }
+                                        device [
+                                          RotationalMotor {
+                                            name "joint6"
+                                            maxVelocity 3
+                                            minPosition -2.0944
+                                            maxPosition 2.0944
+                                            maxTorque 100
+                                          }
+                                          PositionSensor {
+                                            name "joint6_sensor"
+                                          }
+                                        ]
+                                        endPoint Solid {
+                                          translation 8.8e-05 -0.091 0
+                                          rotation 1 0 0 1.5708
+                                          children [
+                                            Shape {
+                                              appearance DEF link6_material PBRAppearance {
+                                                baseColor 0.898039 0.917647 0.929412
+                                                roughness 1
+                                                metalness 0
+                                              }
+                                              geometry DEF link6 Mesh {
+                                                url [
+                                                  "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link6.STL"
+                                                ]
+                                              }
+                                            }
+                                            Solid {
+                                              children [
+                                                Shape {
+                                                  appearance DEF gripper_base_material PBRAppearance {
+                                                    baseColor 0.792157 0.819608 0.933333
+                                                    roughness 1
+                                                    metalness 0
+                                                  }
+                                                  geometry DEF gripper_base Mesh {
+                                                    url [
+                                                      "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/gripper_base.STL"
+                                                    ]
+                                                  }
+                                                }
+                                                SliderJoint {
+                                                  jointParameters JointParameters {
+                                                    axis 0 -1 -4e-06
+                                                  }
+                                                  device [
+                                                    LinearMotor {
+                                                      name "joint7"
+                                                      maxVelocity 1
+                                                      maxPosition 0.035
+                                                    }
+                                                    PositionSensor {
+                                                      name "joint7_sensor"
+                                                    }
+                                                  ]
+                                                  endPoint Solid {
+                                                    translation 0 0 0.1358
+                                                    rotation 1 0 0 1.5708
+                                                    children [
+                                                      Shape {
+                                                        appearance DEF link7_material PBRAppearance {
+                                                          baseColor 0.792157 0.819608 0.933333
+                                                          roughness 1
+                                                          metalness 0
+                                                        }
+                                                        geometry DEF link7 Mesh {
+                                                          url [
+                                                            "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link7.STL"
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                    name "link7"
+                                                    boundingObject USE link7
+                                                    physics Physics {
+                                                      density -1
+                                                      mass 0.025
+                                                      centerOfMass [
+                                                        0.000651 -0.049193 0.009723
+                                                      ]
+                                                      inertiaMatrix [
+                                                        7.371e-05 7.81e-06 7.47e-05
+                                                        -1.13e-06 2.1e-07 -1.372e-05
+                                                      ]
+                                                    }
+                                                  }
+                                                }
+                                                SliderJoint {
+                                                  jointParameters JointParameters {
+                                                    axis -7e-06 -1 4e-06
+                                                  }
+                                                  device [
+                                                    LinearMotor {
+                                                      name "joint8"
+                                                      maxVelocity 1
+                                                      minPosition -0.035
+                                                    }
+                                                    PositionSensor {
+                                                      name "joint8_sensor"
+                                                    }
+                                                  ]
+                                                  endPoint Solid {
+                                                    translation 0 0 0.1358
+                                                    rotation -3.000001192953712e-06 -0.707108281182371 -0.7071052811811781 3.141598
+                                                    children [
+                                                      Shape {
+                                                        appearance DEF link8_material PBRAppearance {
+                                                          baseColor 0.792157 0.819608 0.933333
+                                                          roughness 1
+                                                          metalness 0
+                                                        }
+                                                        geometry DEF link8 Mesh {
+                                                          url [
+                                                            "/home/tdt/quadrobot/Quadruped_MPC/protos/piper_description/meshes/link8.STL"
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                    name "link8"
+                                                    boundingObject USE link8
+                                                    physics Physics {
+                                                      density -1
+                                                      mass 0.025
+                                                      centerOfMass [
+                                                        0.000651 -0.049193 0.009723
+                                                      ]
+                                                      inertiaMatrix [
+                                                        7.371e-05 7.81e-06 7.47e-05
+                                                        -1.13e-06 2.1e-07 -1.372e-05
+                                                      ]
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                              name "gripper_base"
+                                              boundingObject USE gripper_base
+                                              physics Physics {
+                                                density -1
+                                                mass 0.45
+                                                centerOfMass [
+                                                  -0.000184 8.1e-05 0.032144
+                                                ]
+                                                inertiaMatrix [
+                                                  0.00092934 0.00071447 0.00039442
+                                                  3.4e-07 -7.38e-06 5e-08
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                          name "link6"
+                                          boundingObject USE link6
+                                          physics Physics {
+                                            density -1
+                                            mass 0.007
+                                            centerOfMass [
+                                              -8.8e-05 9e-06 -0.002
+                                            ]
+                                            inertiaMatrix [
+                                              5.730155e-07 5.730155e-07 1.067389e-06
+                                              -1.983054e-22 -7.279189e-23 -3.414603e-24
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    ]
+                                    name "link5"
+                                    boundingObject USE link5
+                                    physics Physics {
+                                      density -1
+                                      mass 0.383
+                                      centerOfMass [
+                                        -4.1e-05 -0.056649 -0.003721
+                                      ]
+                                      inertiaMatrix [
+                                        0.00166169 0.0001851 0.00164321
+                                        6e-08 -7e-08 1.026e-05
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                              name "link4"
+                              boundingObject USE link4
+                              physics Physics {
+                                density -1
+                                mass 0.38
+                                centerOfMass [
+                                  -9.7e-05 0.000876 -0.004969
+                                ]
+                                inertiaMatrix [
+                                  0.00018501 0.00018965 0.00015484
+                                  5.4e-07 1.2e-06 -8.41e-06
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                        name "link3"
+                        boundingObject USE link3
+                        physics Physics {
+                          density -1
+                          mass 0.5
+                          centerOfMass [
+                            -0.020274 -0.133915 -0.000459
+                          ]
+                          inertiaMatrix [
+                            0.01361711 0.00045024 0.01380322
+                            0.00165794 -4.8e-07 -4.5e-07
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "link2"
+                  boundingObject USE link2
+                  physics Physics {
+                    density -1
+                    mass 1.17
+                    centerOfMass [
+                      0.198666 -0.010927 0.001421
+                    ]
+                    inertiaMatrix [
+                      0.00116918 0.06785384 0.06774489
+                      -0.00180037 0.00025146 -4.55e-06
+                    ]
+                  }
+                }
+              }
+            ]
+            name "link1"
+            boundingObject USE link1
+            physics Physics {
+              density -1
+              mass 0.71
+              centerOfMass [
+                0.000122 0.000105 -0.004386
+              ]
+              inertiaMatrix [
+                0.00048916 0.00040472 0.00043982
+                -3.6e-07 -2.24e-06 -2.42e-06
+              ]
+            }
+          }
+        }
+      ]
+      name "base_link"
+      boundingObject USE base_link
+      physics Physics {
+        density -1
+        mass 1.02
+        centerOfMass [
+          -0.004736 2.6e-05 0.041452
+        ]
+        inertiaMatrix [
+          0.00267433 0.00282612 0.00089624
+          -7.3e-07 -0.00017389 4e-07
+        ]
+      }
+    }
     DEF BODY_BOX Shape {
       appearance Appearance {
         material Material {

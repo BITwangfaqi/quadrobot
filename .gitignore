@@ -122,3 +122,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+Quadruped_MPC/worlds/.empty.jpg
+
+Quadruped_MPC/worlds/.quadruped_arm.jpg

@@ -1,0 +1,476 @@
+#VRML_SIM R2022b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the Piper
+# Extracted from: /home/tdt/wewebot/piper_description/urdf/piper_description.urdf
+
+PROTO Piper [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Piper"  # Is `Robot.name`.
+  field  SFString    controller      "void"   # Is `Robot.controller`.
+  field  MFString    controllerArgs  []       # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""       # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE    # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE     # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE    # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Solid {
+        translation 0.000000 0.000000 0.000000
+        rotation 0.000000 0.000000 1.000000 0.000000
+        children [
+          Shape {
+            appearance DEF base_link_material PBRAppearance {
+              baseColor 0.792157 0.819608 0.933333
+              transparency 0.000000
+              roughness 1.000000
+              metalness 0
+              emissiveColor 0.000000 0.000000 0.000000
+            }
+            geometry DEF base_link Mesh {
+              url "/home/tdt/wewebot/piper_description/meshes/base_link.STL"
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 1.000000
+              anchor 0.000000 0.000000 0.123000
+              dampingConstant 0.0
+              staticFriction 0.0
+            }
+            device [
+              RotationalMotor {
+                name "joint1"
+                maxVelocity 5.0
+                minPosition -2.618
+                maxPosition 2.618
+                maxTorque 100.0
+              }
+              PositionSensor {
+                name "joint1_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.000000 0.000000 0.123000
+              rotation 0.000000 0.000000 1.000000 0.000000
+              children [
+                Shape {
+                  appearance DEF link1_material PBRAppearance {
+                    baseColor 0.792157 0.819608 0.933333
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry DEF link1 Mesh {
+                    url "/home/tdt/wewebot/piper_description/meshes/link1.STL"
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000007 1.000000 -0.000004
+                    anchor 0.000000 0.000000 0.000000
+                    dampingConstant 0.0
+                    staticFriction 0.0
+                  }
+                  device [
+                    RotationalMotor {
+                      name "joint2"
+                      maxVelocity 5.0
+                      maxPosition 3.14
+                      maxTorque 100.0
+                    }
+                    PositionSensor {
+                      name "joint2_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.000000 0.000000 0.000000
+                    rotation -0.048069 -0.706291 -0.706288 3.045539
+                    children [
+                      Shape {
+                        appearance DEF link2_material PBRAppearance {
+                          baseColor 0.792157 0.819608 0.933333
+                          transparency 0.000000
+                          roughness 1.000000
+                          metalness 0
+                          emissiveColor 0.000000 0.000000 0.000000
+                        }
+                        geometry DEF link2 Mesh {
+                          url "/home/tdt/wewebot/piper_description/meshes/link2.STL"
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0.000000 -0.000000 1.000000
+                          anchor 0.285030 0.000000 0.000000
+                          dampingConstant 0.0
+                          staticFriction 0.0
+                        }
+                        device [
+                          RotationalMotor {
+                            name "joint3"
+                            maxVelocity 5.0
+                            minPosition -2.967
+                            maxTorque 100.0
+                          }
+                          PositionSensor {
+                            name "joint3_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.285030 0.000000 0.000000
+                          rotation 0.000000 0.000000 -1.000000 1.793900
+                          children [
+                            Shape {
+                              appearance DEF link3_material PBRAppearance {
+                                baseColor 0.792157 0.819608 0.933333
+                                transparency 0.000000
+                                roughness 1.000000
+                                metalness 0
+                                emissiveColor 0.000000 0.000000 0.000000
+                              }
+                              geometry DEF link3 Mesh {
+                                url "/home/tdt/wewebot/piper_description/meshes/link3.STL"
+                              }
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0.000000 -1.000000 -0.000004
+                                anchor -0.021984 -0.250750 0.000000
+                                dampingConstant 0.0
+                                staticFriction 0.0
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "joint4"
+                                  maxVelocity 5.0
+                                  minPosition -1.745
+                                  maxPosition 1.745
+                                  maxTorque 100.0
+                                }
+                                PositionSensor {
+                                  name "joint4_sensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation -0.021984 -0.250750 0.000000
+                                rotation 1.000000 0.000000 0.000000 1.570800
+                                children [
+                                  Shape {
+                                    appearance DEF link4_material PBRAppearance {
+                                      baseColor 0.792157 0.819608 0.933333
+                                      transparency 0.000000
+                                      roughness 1.000000
+                                      metalness 0
+                                      emissiveColor 0.000000 0.000000 0.000000
+                                    }
+                                    geometry DEF link4 Mesh {
+                                      url "/home/tdt/wewebot/piper_description/meshes/link4.STL"
+                                    }
+                                  }
+                                  HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                      axis 0.000000 1.000000 -0.000004
+                                      anchor 0.000000 0.000000 0.000000
+                                      dampingConstant 0.0
+                                      staticFriction 0.0
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "joint5"
+                                        maxVelocity 5.0
+                                        minPosition -1.22
+                                        maxPosition 1.22
+                                        maxTorque 100.0
+                                      }
+                                      PositionSensor {
+                                        name "joint5_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 0.000000 0.000000 0.000000
+                                      rotation -1.000000 0.000000 0.000000 1.570800
+                                      children [
+                                        Shape {
+                                          appearance DEF link5_material PBRAppearance {
+                                            baseColor 0.792157 0.819608 0.933333
+                                            transparency 0.000000
+                                            roughness 1.000000
+                                            metalness 0
+                                            emissiveColor 0.000000 0.000000 0.000000
+                                          }
+                                          geometry DEF link5 Mesh {
+                                            url "/home/tdt/wewebot/piper_description/meshes/link5.STL"
+                                          }
+                                        }
+                                        HingeJoint {
+                                          jointParameters HingeJointParameters {
+                                            axis 0.000000 -1.000000 -0.000004
+                                            anchor 0.000088 -0.091000 0.000000
+                                            dampingConstant 0.0
+                                            staticFriction 0.0
+                                          }
+                                          device [
+                                            RotationalMotor {
+                                              name "joint6"
+                                              maxVelocity 3.0
+                                              minPosition -2.0944
+                                              maxPosition 2.0944
+                                              maxTorque 100.0
+                                            }
+                                            PositionSensor {
+                                              name "joint6_sensor"
+                                            }
+                                          ]
+                                          endPoint Solid {
+                                            translation 0.000088 -0.091000 0.000000
+                                            rotation 1.000000 0.000000 0.000000 1.570800
+                                            children [
+                                              Shape {
+                                                appearance DEF link6_material PBRAppearance {
+                                                  baseColor 0.898039 0.917647 0.929412
+                                                  transparency 0.000000
+                                                  roughness 1.000000
+                                                  metalness 0
+                                                  emissiveColor 0.000000 0.000000 0.000000
+                                                }
+                                                geometry DEF link6 Mesh {
+                                                  url "/home/tdt/wewebot/piper_description/meshes/link6.STL"
+                                                }
+                                              }
+                                              Solid {
+                                                translation 0.000000 0.000000 0.000000
+                                                rotation 0.000000 0.000000 1.000000 0.000000
+                                                children [
+                                                  Shape {
+                                                    appearance DEF gripper_base_material PBRAppearance {
+                                                      baseColor 0.792157 0.819608 0.933333
+                                                      transparency 0.000000
+                                                      roughness 1.000000
+                                                      metalness 0
+                                                      emissiveColor 0.000000 0.000000 0.000000
+                                                    }
+                                                    geometry DEF gripper_base Mesh {
+                                                      url "/home/tdt/wewebot/piper_description/meshes/gripper_base.STL"
+                                                    }
+                                                  }
+                                                  SliderJoint {
+                                                    jointParameters JointParameters {
+                                                      axis 0.000000 -1.000000 -0.000004
+                                                      dampingConstant 0.0
+                                                      staticFriction 0.0
+                                                    }
+                                                    device [
+                                                      LinearMotor {
+                                                        name "joint7"
+                                                        maxVelocity 1.0
+                                                        maxPosition 0.035
+                                                        maxForce 10.0
+                                                      }
+                                                      PositionSensor {
+                                                        name "joint7_sensor"
+                                                      }
+                                                    ]
+                                                    endPoint Solid {
+                                                      translation 0.000000 0.000000 0.135800
+                                                      rotation 1.000000 0.000000 0.000000 1.570800
+                                                      children [
+                                                        Shape {
+                                                          appearance DEF link7_material PBRAppearance {
+                                                            baseColor 0.792157 0.819608 0.933333
+                                                            transparency 0.000000
+                                                            roughness 1.000000
+                                                            metalness 0
+                                                            emissiveColor 0.000000 0.000000 0.000000
+                                                          }
+                                                          geometry DEF link7 Mesh {
+                                                            url "/home/tdt/wewebot/piper_description/meshes/link7.STL"
+                                                          }
+                                                        }
+                                                      ]
+                                                      name "link7"
+                                                      boundingObject USE link7
+                                                      physics Physics {
+                                                        density -1
+                                                        mass 0.025000
+                                                        centerOfMass [ 0.000651 -0.049193 0.009723 ]
+                                                        inertiaMatrix [
+                                                          7.371000e-05 7.810000e-06 7.470000e-05
+                                                          -1.130000e-06 2.100000e-07 -1.372000e-05
+                                                        ]
+                                                      }
+                                                    }
+                                                  }
+                                                  SliderJoint {
+                                                    jointParameters JointParameters {
+                                                      axis -0.000007 -1.000000 0.000004
+                                                      dampingConstant 0.0
+                                                      staticFriction 0.0
+                                                    }
+                                                    device [
+                                                      LinearMotor {
+                                                        name "joint8"
+                                                        maxVelocity 1.0
+                                                        minPosition -0.035
+                                                        maxForce 10.0
+                                                      }
+                                                      PositionSensor {
+                                                        name "joint8_sensor"
+                                                      }
+                                                    ]
+                                                    endPoint Solid {
+                                                      translation 0.000000 0.000000 0.135800
+                                                      rotation -0.000003 -0.707108 -0.707105 3.141598
+                                                      children [
+                                                        Shape {
+                                                          appearance DEF link8_material PBRAppearance {
+                                                            baseColor 0.792157 0.819608 0.933333
+                                                            transparency 0.000000
+                                                            roughness 1.000000
+                                                            metalness 0
+                                                            emissiveColor 0.000000 0.000000 0.000000
+                                                          }
+                                                          geometry DEF link8 Mesh {
+                                                            url "/home/tdt/wewebot/piper_description/meshes/link8.STL"
+                                                          }
+                                                        }
+                                                      ]
+                                                      name "link8"
+                                                      boundingObject USE link8
+                                                      physics Physics {
+                                                        density -1
+                                                        mass 0.025000
+                                                        centerOfMass [ 0.000651 -0.049193 0.009723 ]
+                                                        inertiaMatrix [
+                                                          7.371000e-05 7.810000e-06 7.470000e-05
+                                                          -1.130000e-06 2.100000e-07 -1.372000e-05
+                                                        ]
+                                                      }
+                                                    }
+                                                  }
+                                                ]
+                                                name "gripper_base"
+                                                boundingObject USE gripper_base
+                                                physics Physics {
+                                                  density -1
+                                                  mass 0.450000
+                                                  centerOfMass [ -0.000184 0.000081 0.032144 ]
+                                                  inertiaMatrix [
+                                                    9.293400e-04 7.144700e-04 3.944200e-04
+                                                    3.400000e-07 -7.380000e-06 5.000000e-08
+                                                  ]
+                                                }
+                                              }
+                                            ]
+                                            name "link6"
+                                            boundingObject USE link6
+                                            physics Physics {
+                                              density -1
+                                              mass 0.007000
+                                              centerOfMass [ -0.000088 0.000009 -0.002000 ]
+                                              inertiaMatrix [
+                                                5.730155e-07 5.730155e-07 1.067389e-06
+                                                -1.983054e-22 -7.279189e-23 -3.414603e-24
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                      name "link5"
+                                      boundingObject USE link5
+                                      physics Physics {
+                                        density -1
+                                        mass 0.383000
+                                        centerOfMass [ -0.000041 -0.056649 -0.003721 ]
+                                        inertiaMatrix [
+                                          1.661690e-03 1.851000e-04 1.643210e-03
+                                          6.000000e-08 -7.000000e-08 1.026000e-05
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                                name "link4"
+                                boundingObject USE link4
+                                physics Physics {
+                                  density -1
+                                  mass 0.380000
+                                  centerOfMass [ -0.000097 0.000876 -0.004969 ]
+                                  inertiaMatrix [
+                                    1.850100e-04 1.896500e-04 1.548400e-04
+                                    5.400000e-07 1.200000e-06 -8.410000e-06
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                          name "link3"
+                          boundingObject USE link3
+                          physics Physics {
+                            density -1
+                            mass 0.500000
+                            centerOfMass [ -0.020274 -0.133915 -0.000459 ]
+                            inertiaMatrix [
+                              1.361711e-02 4.502400e-04 1.380322e-02
+                              1.657940e-03 -4.800000e-07 -4.500000e-07
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "link2"
+                    boundingObject USE link2
+                    physics Physics {
+                      density -1
+                      mass 1.170000
+                      centerOfMass [ 0.198666 -0.010927 0.001421 ]
+                      inertiaMatrix [
+                        1.169180e-03 6.785384e-02 6.774489e-02
+                        -1.800370e-03 2.514600e-04 -4.550000e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "link1"
+              boundingObject USE link1
+              physics Physics {
+                density -1
+                mass 0.710000
+                centerOfMass [ 0.000122 0.000105 -0.004386 ]
+                inertiaMatrix [
+                  4.891600e-04 4.047200e-04 4.398200e-04
+                  -3.600000e-07 -2.240000e-06 -2.420000e-06
+                ]
+              }
+            }
+          }
+        ]
+        name "base_link"
+        boundingObject USE base_link
+        physics Physics {
+          density -1
+          mass 1.020000
+          centerOfMass [ -0.004736 0.000026 0.041452 ]
+          inertiaMatrix [
+            2.674330e-03 2.826120e-03 8.962400e-04
+            -7.300000e-07 -1.738900e-04 4.000000e-07
+          ]
+        }
+      }
+    ]
+    name IS name
+  }
+}

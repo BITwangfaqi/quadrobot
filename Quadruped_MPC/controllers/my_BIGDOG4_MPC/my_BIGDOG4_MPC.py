@@ -93,7 +93,7 @@ def main():
     for sensor in position_sensors.values():
         sensor.enable(TIME_STEP)
 
-    mass = 13.5
+    mass = 13.5 + 4.67
     inertia = np.diag([0.06150, 0.1313, 0.1646])
     rbs = np.array(
         [
