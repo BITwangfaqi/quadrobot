@@ -1,0 +1,9 @@
+# Portable backend: full rigid-body RNEA and automatic differentiation in CasADi.
+numpy>=1.23,<3
+casadi>=3.7,<4
+
+# Optional native acceleration/cross-check backend: install the package `pin`
+# or a conda-forge Pinocchio build compatible with your Python/NumPy versions.
+# Do NOT install the unrelated PyPI package named `pinocchio`.
+# Native pinocchio.casadi bindings are optional; the symbolic tree backend is
+# used when they are unavailable. See README.md for the existing wewebot env.

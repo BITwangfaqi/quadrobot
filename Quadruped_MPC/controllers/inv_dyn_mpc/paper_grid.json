@@ -1,0 +1,9 @@
+{
+  "solver": "fatrop",
+  "horizon": 14,
+  "dt": 0.01,
+  "growth": 1.193776641714434,
+  "solve_period": 0.0125,
+  "gait_period": 0.8,
+  "max_iterations": 80
+}

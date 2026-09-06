@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "inv_dyn_mpc (Webots extern, wewebot)",
+      "type": "debugpy",
+      "request": "launch",
+      "python": "/home/tdt/anaconda3/envs/wewebot/bin/python",
+      "program": "${workspaceFolder}/Quadruped_MPC/controllers/inv_dyn_mpc/inv_dyn_mpc.py",
+      "cwd": "${workspaceFolder}/Quadruped_MPC/controllers/inv_dyn_mpc",
+      "console": "integratedTerminal",
+      "env": {
+        "WEBOTS_HOME": "/usr/local/webots",
+        "OPENBLAS_NUM_THREADS": "1"
+      },
+      "args": []
+    }
+  ]
+}
