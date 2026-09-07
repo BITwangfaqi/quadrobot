@@ -1,0 +1,9 @@
+name: wb-mpc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pinocchio=3.3.0
+  - meshcat-python
+  - matplotlib
+  - osqp

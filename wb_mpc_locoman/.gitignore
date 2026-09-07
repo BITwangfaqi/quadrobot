@@ -1,0 +1,14 @@
+# Solver files
+*.mtx
+*.casadi
+
+# Codegen
+codegen/build
+codegen/retract
+codegen/sqp
+*.c
+
+# Other
+__pycache__
+.vscode
+plots
