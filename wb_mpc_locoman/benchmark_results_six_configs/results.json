@@ -1,0 +1,365 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-09T14:55:54.297712+00:00",
+    "cpu": "Intel(R) Core(TM) i9-9900 CPU @ 3.10GHz",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.12.14",
+    "casadi": "3.6.7",
+    "pinocchio": "3.3.0",
+    "numpy": "2.5.3",
+    "models": [
+      "whole_body_rnea",
+      "whole_body_aba",
+      "centroidal_vel",
+      "centroidal_vel_no_base",
+      "centroidal_acc",
+      "centroidal_acc_no_base"
+    ],
+    "solver": "fatrop",
+    "solver_args": {
+      "opts": {
+        "expand": true,
+        "structure_detection": "auto",
+        "debug": true,
+        "fatrop.print_level": 0,
+        "fatrop.max_iter": 10,
+        "fatrop.tol": 0.001,
+        "fatrop.mu_init": 0.0001,
+        "fatrop.warm_start_init_point": true,
+        "fatrop.warm_start_mult_bound_push": 1e-07,
+        "fatrop.bound_push": 1e-07
+      }
+    },
+    "dynamics_models": {
+      "whole_body_rnea": "whole_body_rnea",
+      "whole_body_aba": "whole_body_aba",
+      "centroidal_vel": "centroidal_vel",
+      "centroidal_vel_no_base": "centroidal_vel",
+      "centroidal_acc": "centroidal_acc",
+      "centroidal_acc_no_base": "centroidal_acc"
+    },
+    "dynamics_args": {
+      "whole_body_rnea": {
+        "include_acc": true
+      },
+      "whole_body_aba": {},
+      "centroidal_vel": {
+        "include_base": true
+      },
+      "centroidal_vel_no_base": {
+        "include_base": false
+      },
+      "centroidal_acc": {
+        "include_base": true
+      },
+      "centroidal_acc_no_base": {
+        "include_base": false
+      }
+    },
+    "loops": 200,
+    "repeats": 1,
+    "discard": 10,
+    "robot": "B2_Z1",
+    "arm_joints": 4,
+    "reference_pose": "standing_with_arm_up",
+    "nodes": 14,
+    "tau_nodes": 3,
+    "state_nodes": 15,
+    "dt_min": 0.015,
+    "dt_max": 0.08,
+    "gait_type": "trot",
+    "gait_period": 0.8,
+    "swing_height": 0.07,
+    "swing_vel_limits": [
+      0.1,
+      -0.2
+    ],
+    "base_vel_des": [
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "arm_vel_des": [
+      0.1,
+      0.0,
+      -0.2
+    ],
+    "arm_force_des": [
+      0,
+      0,
+      0
+    ],
+    "warm_start": true,
+    "compiled": false,
+    "timing_scope": "solver_function wall time only",
+    "state_update": "predicted next state, as in main.py; no separate forward-dynamics simulation",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "runs": [
+    {
+      "model": "whole_body_rnea",
+      "repeat": 1,
+      "setup_s": 5.157054417009931,
+      "dynamics": "whole_body_rnea",
+      "dynamics_args": {
+        "include_acc": true
+      },
+      "decision_variables": 1226,
+      "constraints": 1773,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 61.148713
+    },
+    {
+      "model": "whole_body_aba",
+      "repeat": 1,
+      "setup_s": 12.030869206995703,
+      "dynamics": "whole_body_aba",
+      "dynamics_args": {},
+      "decision_variables": 1094,
+      "constraints": 1641,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 166.270505
+    },
+    {
+      "model": "centroidal_vel",
+      "repeat": 1,
+      "setup_s": 6.262420649989508,
+      "dynamics": "centroidal_vel",
+      "dynamics_args": {
+        "include_base": true
+      },
+      "decision_variables": 938,
+      "constraints": 1532,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 60.102118
+    },
+    {
+      "model": "centroidal_vel_no_base",
+      "repeat": 1,
+      "setup_s": 16.527956466015894,
+      "dynamics": "centroidal_vel",
+      "dynamics_args": {
+        "include_base": false
+      },
+      "decision_variables": 854,
+      "constraints": 1448,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 191.748103
+    },
+    {
+      "model": "centroidal_acc",
+      "repeat": 1,
+      "setup_s": 22.381404149986338,
+      "dynamics": "centroidal_acc",
+      "dynamics_args": {
+        "include_base": true
+      },
+      "decision_variables": 1178,
+      "constraints": 1725,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 255.740204
+    },
+    {
+      "model": "centroidal_acc_no_base",
+      "repeat": 1,
+      "setup_s": 33.23013830702985,
+      "dynamics": "centroidal_acc",
+      "dynamics_args": {
+        "include_base": false
+      },
+      "decision_variables": 1094,
+      "constraints": 1641,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 453.920476
+    }
+  ],
+  "summary": [
+    {
+      "model": "whole_body_rnea",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 46.046701815,
+        "std": 10.734776719115834,
+        "median": 39.861391,
+        "p95": 69.82130535,
+        "min": 38.375267,
+        "max": 91.088081
+      },
+      "retained_solve_ms": {
+        "mean": 46.1433453368421,
+        "std": 10.896518366974032,
+        "median": 39.856468,
+        "p95": 69.89090885,
+        "min": 38.375267,
+        "max": 91.088081
+      },
+      "constraint_violation_inf": {
+        "mean": 1.9605913759650206e-07,
+        "std": 4.3461269501564055e-07,
+        "median": 7.405984625563633e-08,
+        "p95": 9.78468287371469e-07,
+        "min": 4.831690603168681e-13,
+        "max": 3.360896982940176e-06
+      },
+      "cv_within_tolerance_count": 200
+    },
+    {
+      "model": "whole_body_aba",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 138.10031268499998,
+        "std": 53.214463730777595,
+        "median": 111.84905499999999,
+        "p95": 262.90889104999945,
+        "min": 104.374155,
+        "max": 364.083591
+      },
+      "retained_solve_ms": {
+        "mean": 138.94547407894734,
+        "std": 54.28107035944126,
+        "median": 112.2637215,
+        "p95": 278.6769615499995,
+        "min": 104.374155,
+        "max": 364.083591
+      },
+      "constraint_violation_inf": {
+        "mean": 3.151477476130463,
+        "std": 26.95592496916819,
+        "median": 1.080128361058419e-08,
+        "p95": 4.658477959641725e-07,
+        "min": 6.084895210205388e-13,
+        "max": 272.7641329628624
+      },
+      "cv_within_tolerance_count": 197
+    },
+    {
+      "model": "centroidal_vel",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 64.699092205,
+        "std": 30.510825246094633,
+        "median": 58.282198,
+        "p95": 148.15338305,
+        "min": 45.613309,
+        "max": 167.931615
+      },
+      "retained_solve_ms": {
+        "mean": 65.43761021052633,
+        "std": 31.10332225518806,
+        "median": 58.443551,
+        "p95": 148.36504355,
+        "min": 45.613309,
+        "max": 167.931615
+      },
+      "constraint_violation_inf": {
+        "mean": 0.01615850503069033,
+        "std": 0.12144974514845636,
+        "median": 1.1338299188423662e-08,
+        "p95": 2.403726979415837e-05,
+        "min": 3.010452997997959e-12,
+        "max": 1.195331204291751
+      },
+      "cv_within_tolerance_count": 195
+    },
+    {
+      "model": "centroidal_vel_no_base",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 222.31516030999998,
+        "std": 91.5953211300062,
+        "median": 192.946018,
+        "p95": 465.05094625,
+        "min": 146.791278,
+        "max": 516.000467
+      },
+      "retained_solve_ms": {
+        "mean": 224.4751431578947,
+        "std": 93.37276024667175,
+        "median": 192.9736265,
+        "p95": 466.42117874999997,
+        "min": 146.791278,
+        "max": 516.000467
+      },
+      "constraint_violation_inf": {
+        "mean": 3.2823772511366454e-05,
+        "std": 0.00039540133498702746,
+        "median": 1.8446798810689558e-09,
+        "p95": 4.18985233198718e-06,
+        "min": 3.4320046804481308e-12,
+        "max": 0.005582891507857457
+      },
+      "cv_within_tolerance_count": 199
+    },
+    {
+      "model": "centroidal_acc",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 189.19689474999998,
+        "std": 50.44880960313564,
+        "median": 161.41857149999998,
+        "p95": 298.7545511,
+        "min": 151.457145,
+        "max": 396.302388
+      },
+      "retained_solve_ms": {
+        "mean": 189.81694844736845,
+        "std": 51.15262042203045,
+        "median": 161.50856149999998,
+        "p95": 299.3706521,
+        "min": 151.457145,
+        "max": 396.302388
+      },
+      "constraint_violation_inf": {
+        "mean": 2.103619447078222e-07,
+        "std": 4.504654158207499e-07,
+        "median": 7.708557969721141e-08,
+        "p95": 1.0118359680788554e-06,
+        "min": 3.622110799483269e-13,
+        "max": 3.3564993877632787e-06
+      },
+      "cv_within_tolerance_count": 200
+    },
+    {
+      "model": "centroidal_acc_no_base",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 388.31434446,
+        "std": 162.282219773098,
+        "median": 359.34698849999995,
+        "p95": 870.67735955,
+        "min": 269.209799,
+        "max": 927.910174
+      },
+      "retained_solve_ms": {
+        "mean": 390.65420221052636,
+        "std": 165.70874712285843,
+        "median": 359.29765399999997,
+        "p95": 870.79302505,
+        "min": 269.209799,
+        "max": 927.910174
+      },
+      "constraint_violation_inf": {
+        "mean": 0.01805561577412338,
+        "std": 0.1478814910142547,
+        "median": 1.562517504272165e-09,
+        "p95": 6.920149137275469e-06,
+        "min": 4.340972026284362e-13,
+        "max": 1.454710336515106
+      },
+      "cv_within_tolerance_count": 197
+    }
+  ]
+}

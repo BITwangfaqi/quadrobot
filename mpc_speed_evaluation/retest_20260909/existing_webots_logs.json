@@ -1,0 +1,18 @@
+{
+  "forward": {
+    "source": "webots_forward_dynamics_mpc/logs/webots_log.csv",
+    "samples": 2158,
+    "mean_ms": 2.763618847544022,
+    "p95_ms": 3.5706100000000007,
+    "max_ms": 5.498396,
+    "failures": 0
+  },
+  "inverse": {
+    "source": "webots_inverse_dynamics_mpc/logs/webots_log.csv",
+    "samples": 2153,
+    "mean_ms": 3.0630746683697168,
+    "p95_ms": 4.185778999999999,
+    "max_ms": 17.766599,
+    "failures": 0
+  }
+}

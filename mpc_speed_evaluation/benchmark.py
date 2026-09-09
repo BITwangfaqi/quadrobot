@@ -1,5 +1,6 @@
 """Sequential same-state replay benchmark; leaves controller code/logs intact."""
 import csv
+from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
@@ -9,7 +10,7 @@ import sys
 from time import perf_counter
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = Path(__file__).resolve().parent
+OUT = Path(os.environ.get('MPC_BENCHMARK_OUTPUT', Path(__file__).resolve().parent)).resolve()
 
 
 def worker(kind, matched):
@@ -39,13 +40,14 @@ def worker(kind, matched):
 def summary(records, key):
     import numpy as np
     a = np.array([float(r[key]) for r in records])
-    return dict(n=len(a), mean=float(a.mean()), median=float(np.median(a)),
+    return dict(n=len(a), mean=float(a.mean()), std=float(a.std()), median=float(np.median(a)),
                 p95=float(np.percentile(a, 95)), p99=float(np.percentile(a, 99)),
                 max=float(a.max()), over_20ms=int((a > 20).sum()))
 
 
 def main():
     import casadi
+    OUT.mkdir(parents=True, exist_ok=True)
     # Both methods receive exactly the same 751 states, at 20 ms intervals.
     source = ROOT / 'webots_forward_dynamics_mpc/logs/offline_validation.csv'
     with source.open() as f:
@@ -54,7 +56,8 @@ def main():
     (OUT / 'states.json').write_text(json.dumps(states))
     env = os.environ.copy()
     env.update(OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', MKL_NUM_THREADS='1')
-    result = dict(environment=dict(python=sys.executable, version=sys.version,
+    result = dict(created_utc=datetime.now(timezone.utc).isoformat(),
+                  environment=dict(python=sys.executable, version=sys.version,
                   platform=platform.platform(), casadi=casadi.__version__,
                   threads=1), replay_source=str(source), states=len(states), runs=[])
     # Alternate order, use fresh processes, and never compete for CPU in parallel.

@@ -33,6 +33,65 @@ Within the script, the following parameters are defined:
 - Gait: Type, period and swing parameters
 - Solver: Type ("fatrop", "ipopt", or "osqp"), warm-starting, code-compilation
 
+### Compare dynamics solve times
+
+Run the six configurations in Table I without plotting or opening Meshcat:
+
+```bash
+conda activate wb-mpc
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python benchmark_dynamics.py
+```
+
+The benchmark uses the OCP, gait, targets and warm-start settings from `main.py`,
+with a fresh B2_Z1 robot (four arm joints) for each configuration. The defaults
+follow the six rows of Table I in order:
+
+| Configuration (`--cases`) | OCP dynamics | Explicit arguments | Dynamics path constraint |
+| --- | --- | --- | --- |
+| `whole_body_rnea` | `whole_body_rnea` | `include_acc=True` | Yes |
+| `whole_body_aba` | `whole_body_aba` | None | No |
+| `centroidal_vel` | `centroidal_vel` | `include_base=True` | Yes |
+| `centroidal_vel_no_base` | `centroidal_vel` | `include_base=False` | No |
+| `centroidal_acc` | `centroidal_acc` | `include_base=True` | Yes |
+| `centroidal_acc_no_base` | `centroidal_acc` | `include_base=False` | No |
+
+These arguments are set per configuration without modifying `DYN_ARGS` or
+`main.py`. `whole_body_acc` remains available as an extra configuration through
+`--cases whole_body_acc`; it is not a separate row in Table I. `--models` is
+retained as an alias for `--cases`.
+
+Each model runs 200 MPC iterations by default. Only the uncompiled
+`solver_function` call is timed; solver construction, parameter updates and
+solution processing are excluded. Each model follows its own predicted state
+trajectory, as in `main.py`, and retains its own default cost weights and
+constraints. These results compare the repository's complete OCP formulations.
+They do not reproduce the paper's separate Pinocchio forward-dynamics closed-loop
+simulation. The default `nodes=14` means 14 control intervals and 15 state nodes;
+the 15–80 ms time steps give a horizon of about 0.553 s.
+
+Results are saved in `benchmark_results_six_configs/`: `samples.csv` contains every solve
+time and constraint violation, `results.json` includes settings and statistics,
+and [summary.md](benchmark_results_six_configs/summary.md) gives the comparison tables
+and decision variable counts. The earlier four-class results remain in
+`benchmark_results/`.
+Both all-iteration statistics and statistics excluding the first 10 iterations
+are reported. The default Fatrop configuration permits only 10 iterations per
+solve; check constraint violations when interpreting timing results.
+
+Use `--repeats 3` for independent repeated runs, `--loops 200 --discard 10` to
+control sampling, `--solver ipopt` to change solvers, or `--output <directory>`
+to preserve a separate result set. Fatrop's debug files are written to the
+working directory; run the script by absolute path from a temporary directory
+if you want those files outside the repository.
+
+For example, run only the three configurations missing from the original benchmark:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python benchmark_dynamics.py \
+  --cases whole_body_aba centroidal_vel_no_base centroidal_acc_no_base \
+  --output benchmark_results_missing_configs
+```
+
 ## Optimal Control Problem
 
 ### Dynamics

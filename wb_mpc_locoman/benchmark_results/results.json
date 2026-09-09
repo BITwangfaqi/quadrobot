@@ -1,0 +1,249 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-09T14:35:15.214720+00:00",
+    "cpu": "Intel(R) Core(TM) i9-9900 CPU @ 3.10GHz",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.12.14",
+    "casadi": "3.6.7",
+    "pinocchio": "3.3.0",
+    "numpy": "2.5.3",
+    "models": [
+      "centroidal_vel",
+      "centroidal_acc",
+      "whole_body_acc",
+      "whole_body_rnea"
+    ],
+    "solver": "fatrop",
+    "solver_args": {
+      "opts": {
+        "expand": true,
+        "structure_detection": "auto",
+        "debug": true,
+        "fatrop.print_level": 0,
+        "fatrop.max_iter": 10,
+        "fatrop.tol": 0.001,
+        "fatrop.mu_init": 0.0001,
+        "fatrop.warm_start_init_point": true,
+        "fatrop.warm_start_mult_bound_push": 1e-07,
+        "fatrop.bound_push": 1e-07
+      }
+    },
+    "dynamics_args": {
+      "centroidal_vel": {
+        "include_base": true
+      },
+      "centroidal_acc": {
+        "include_base": true
+      },
+      "whole_body_acc": {
+        "include_base": true
+      },
+      "whole_body_rnea": {
+        "include_acc": true
+      }
+    },
+    "loops": 200,
+    "repeats": 1,
+    "discard": 10,
+    "robot": "B2_Z1",
+    "arm_joints": 4,
+    "reference_pose": "standing_with_arm_up",
+    "nodes": 14,
+    "tau_nodes": 3,
+    "dt_min": 0.015,
+    "dt_max": 0.08,
+    "gait_type": "trot",
+    "gait_period": 0.8,
+    "swing_height": 0.07,
+    "swing_vel_limits": [
+      0.1,
+      -0.2
+    ],
+    "base_vel_des": [
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "arm_vel_des": [
+      0.1,
+      0.0,
+      -0.2
+    ],
+    "arm_force_des": [
+      0,
+      0,
+      0
+    ],
+    "warm_start": true,
+    "compiled": false,
+    "timing_scope": "solver_function wall time only",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "runs": [
+    {
+      "model": "centroidal_vel",
+      "repeat": 1,
+      "setup_s": 6.225786143972073,
+      "decision_variables": 938,
+      "constraints": 1532,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 60.0383
+    },
+    {
+      "model": "centroidal_acc",
+      "repeat": 1,
+      "setup_s": 21.216095519950613,
+      "decision_variables": 1178,
+      "constraints": 1725,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 243.800593
+    },
+    {
+      "model": "whole_body_acc",
+      "repeat": 1,
+      "setup_s": 5.455731822003145,
+      "decision_variables": 1178,
+      "constraints": 1725,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 63.782679
+    },
+    {
+      "model": "whole_body_rnea",
+      "repeat": 1,
+      "setup_s": 5.097977716999594,
+      "decision_variables": 1226,
+      "constraints": 1773,
+      "horizon_s": 0.5529833763607531,
+      "first_solve_ms": 60.024972
+    }
+  ],
+  "summary": [
+    {
+      "model": "centroidal_vel",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 64.05837009,
+        "std": 29.614107280641598,
+        "median": 57.7324185,
+        "p95": 144.35609945,
+        "min": 45.25301,
+        "max": 166.16943
+      },
+      "retained_solve_ms": {
+        "mean": 64.71352201052632,
+        "std": 30.21327996050629,
+        "median": 57.828411,
+        "p95": 144.41529395,
+        "min": 45.25301,
+        "max": 166.16943
+      },
+      "constraint_violation_inf": {
+        "mean": 0.01615850503069033,
+        "std": 0.12144974514845636,
+        "median": 1.1338299188423662e-08,
+        "p95": 2.403726979415837e-05,
+        "min": 3.010452997997959e-12,
+        "max": 1.195331204291751
+      },
+      "cv_within_tolerance_count": 195
+    },
+    {
+      "model": "centroidal_acc",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 178.888366695,
+        "std": 48.75037967377859,
+        "median": 150.0739795,
+        "p95": 287.48661695,
+        "min": 146.47196,
+        "max": 381.686627
+      },
+      "retained_solve_ms": {
+        "mean": 179.40804662631578,
+        "std": 49.47810089449608,
+        "median": 149.832021,
+        "p95": 287.58631644999997,
+        "min": 146.47196,
+        "max": 381.686627
+      },
+      "constraint_violation_inf": {
+        "mean": 2.103619447078222e-07,
+        "std": 4.504654158207499e-07,
+        "median": 7.708557969721141e-08,
+        "p95": 1.0118359680788554e-06,
+        "min": 3.622110799483269e-13,
+        "max": 3.3564993877632787e-06
+      },
+      "cv_within_tolerance_count": 200
+    },
+    {
+      "model": "whole_body_acc",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 48.020214255,
+        "std": 11.071050600432946,
+        "median": 41.671209000000005,
+        "p95": 72.27162154999999,
+        "min": 39.894557,
+        "max": 94.425266
+      },
+      "retained_solve_ms": {
+        "mean": 48.1199727631579,
+        "std": 11.233864896685912,
+        "median": 41.5603455,
+        "p95": 72.33586704999999,
+        "min": 39.894557,
+        "max": 94.425266
+      },
+      "constraint_violation_inf": {
+        "mean": 2.042227908690547e-07,
+        "std": 4.4044141961002376e-07,
+        "median": 7.613123642613573e-08,
+        "p95": 1.0025263556201475e-06,
+        "min": 3.979039320256561e-13,
+        "max": 3.3878049521263165e-06
+      },
+      "cv_within_tolerance_count": 200
+    },
+    {
+      "model": "whole_body_rnea",
+      "samples": 200,
+      "retained_samples": 190,
+      "all_solve_ms": {
+        "mean": 45.957016335000006,
+        "std": 10.708650552166329,
+        "median": 39.817554,
+        "p95": 70.00315985,
+        "min": 38.515879,
+        "max": 91.199868
+      },
+      "retained_solve_ms": {
+        "mean": 46.08827951052632,
+        "std": 10.864423082597773,
+        "median": 39.8093765,
+        "p95": 70.10433834999999,
+        "min": 38.515879,
+        "max": 91.199868
+      },
+      "constraint_violation_inf": {
+        "mean": 1.9605913759650206e-07,
+        "std": 4.3461269501564055e-07,
+        "median": 7.405984625563633e-08,
+        "p95": 9.78468287371469e-07,
+        "min": 4.831690603168681e-13,
+        "max": 3.360896982940176e-06
+      },
+      "cv_within_tolerance_count": 200
+    }
+  ]
+}
