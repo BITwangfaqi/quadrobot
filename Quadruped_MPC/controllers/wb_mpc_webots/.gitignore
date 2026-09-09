@@ -1,0 +1,7 @@
+.cache/
+__pycache__/
+*.mtx
+*.casadi
+solver_function.c
+retract_solution.c
+validation/runs/

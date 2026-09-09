@@ -1,0 +1,315 @@
+{
+  "model_checks": "passed",
+  "solves": [
+    {
+      "model": "centroidal_vel",
+      "settings": {
+        "dynamics": "centroidal_vel",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.02,
+        "dt_max": 0.04,
+        "solve_period": 0.08,
+        "gait_period": 1.12,
+        "swing_height": 0.025,
+        "swing_vel_limits": [
+          0.02,
+          -0.04
+        ],
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": [
+          60.0,
+          60.0,
+          20.0
+        ],
+        "leg_kd": [
+          0.5,
+          0.5,
+          0.1
+        ],
+        "arm_kp": [
+          300.0,
+          300.0,
+          300.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "arm_kd": [
+          12.0,
+          12.0,
+          12.0,
+          0.04,
+          0.04,
+          0.04
+        ],
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": "",
+        "ipopt_fallback": true
+      },
+      "variables": 938,
+      "constraints": 1548,
+      "cv": 4.573668332047129e-08,
+      "elapsed": 0.20545062300516292
+    },
+    {
+      "model": "centroidal_acc",
+      "settings": {
+        "dynamics": "centroidal_acc",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.02,
+        "dt_max": 0.04,
+        "solve_period": 0.08,
+        "gait_period": 1.12,
+        "swing_height": 0.025,
+        "swing_vel_limits": [
+          0.02,
+          -0.04
+        ],
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": [
+          60.0,
+          60.0,
+          20.0
+        ],
+        "leg_kd": [
+          0.5,
+          0.5,
+          0.1
+        ],
+        "arm_kp": [
+          300.0,
+          300.0,
+          300.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "arm_kd": [
+          12.0,
+          12.0,
+          12.0,
+          0.04,
+          0.04,
+          0.04
+        ],
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": "",
+        "ipopt_fallback": true
+      },
+      "variables": 1178,
+      "constraints": 1741,
+      "cv": 2.18670909418045e-08,
+      "elapsed": 0.4794868809985928
+    },
+    {
+      "model": "whole_body_acc",
+      "settings": {
+        "dynamics": "whole_body_acc",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.02,
+        "dt_max": 0.04,
+        "solve_period": 0.08,
+        "gait_period": 1.12,
+        "swing_height": 0.025,
+        "swing_vel_limits": [
+          0.02,
+          -0.04
+        ],
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": [
+          60.0,
+          60.0,
+          20.0
+        ],
+        "leg_kd": [
+          0.5,
+          0.5,
+          0.1
+        ],
+        "arm_kp": [
+          300.0,
+          300.0,
+          300.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "arm_kd": [
+          12.0,
+          12.0,
+          12.0,
+          0.04,
+          0.04,
+          0.04
+        ],
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": "",
+        "ipopt_fallback": true
+      },
+      "variables": 1178,
+      "constraints": 1741,
+      "cv": 2.186707575430047e-08,
+      "elapsed": 0.16739270198740996
+    },
+    {
+      "model": "whole_body_rnea",
+      "settings": {
+        "dynamics": "whole_body_rnea",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.02,
+        "dt_max": 0.04,
+        "solve_period": 0.08,
+        "gait_period": 1.12,
+        "swing_height": 0.025,
+        "swing_vel_limits": [
+          0.02,
+          -0.04
+        ],
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": [
+          60.0,
+          60.0,
+          20.0
+        ],
+        "leg_kd": [
+          0.5,
+          0.5,
+          0.1
+        ],
+        "arm_kp": [
+          300.0,
+          300.0,
+          300.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "arm_kd": [
+          12.0,
+          12.0,
+          12.0,
+          0.04,
+          0.04,
+          0.04
+        ],
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": "",
+        "ipopt_fallback": true
+      },
+      "variables": 1242,
+      "constraints": 1805,
+      "cv": 5.2829043911163664e-08,
+      "elapsed": 0.2004355319950264
+    },
+    {
+      "model": "whole_body_aba",
+      "settings": {
+        "dynamics": "whole_body_aba",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.02,
+        "dt_max": 0.04,
+        "solve_period": 0.08,
+        "gait_period": 1.12,
+        "swing_height": 0.025,
+        "swing_vel_limits": [
+          0.02,
+          -0.04
+        ],
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": [
+          60.0,
+          60.0,
+          20.0
+        ],
+        "leg_kd": [
+          0.5,
+          0.5,
+          0.1
+        ],
+        "arm_kp": [
+          300.0,
+          300.0,
+          300.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "arm_kd": [
+          12.0,
+          12.0,
+          12.0,
+          0.04,
+          0.04,
+          0.04
+        ],
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": "",
+        "ipopt_fallback": true
+      },
+      "variables": 1094,
+      "constraints": 1657,
+      "cv": 2.3321709664777006e-08,
+      "elapsed": 0.6259408480254933
+    }
+  ]
+}

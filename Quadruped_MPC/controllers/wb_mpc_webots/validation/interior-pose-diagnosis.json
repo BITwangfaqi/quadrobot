@@ -1,0 +1,15 @@
+{
+  "startup_checks": [
+    "arm_0_startup_within_limits",
+    "arm_4_startup_within_limits",
+    "arm_6_startup_within_limits"
+  ],
+  "diagnostic": "Recorded-state replay, first Euler position bound is independent of acceleration",
+  "joint": "joint3",
+  "measured_position": 0.0003786582947094226,
+  "measured_velocity": 0.05170632097133339,
+  "first_dt": 0.02,
+  "predicted_position": 0.0014127847141360904,
+  "upper_limit": 0.0,
+  "unavoidable_violation": 0.0014127847141360904
+}

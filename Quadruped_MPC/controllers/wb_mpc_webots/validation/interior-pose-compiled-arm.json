@@ -1,0 +1,98 @@
+{
+  "scenario": "arm",
+  "duration": 6.0,
+  "min_height": 0.32389104217644654,
+  "max_height": 0.32404504972450765,
+  "max_tilt": 0.0009391768842917252,
+  "failure_fraction": 0.0,
+  "torque_fraction": 1.0,
+  "solves": 50,
+  "elapsed_p95": 0.07381122523511294,
+  "deadline_misses": 1,
+  "passed": true,
+  "faults": 0,
+  "solve_interval_min": 0.07999999999999918,
+  "solve_interval_max": 0.08000000000000007,
+  "cadence_passed": true,
+  "tool_height_change": 0.009502117228621931,
+  "actual_tool_height_change": 0.00952315600054976,
+  "tool_fk_height_error": 6.344726947449253e-05,
+  "run": "validation/runs/arm-1788948461466639765",
+  "manifest": {
+    "scenario": "arm",
+    "duration": 6.0,
+    "velocity": 0.0,
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "fatrop",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.02,
+      "dt_max": 0.04,
+      "solve_period": 0.08,
+      "gait_period": 1.12,
+      "swing_height": 0.025,
+      "swing_vel_limits": [
+        0.02,
+        -0.04
+      ],
+      "max_iter": 80,
+      "max_cv": 0.001,
+      "leg_kp": [
+        60,
+        60,
+        20
+      ],
+      "leg_kd": [
+        0.5,
+        0.5,
+        0.1
+      ],
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed/solver_function.so"
+    },
+    "basic_time_step_ms": 10,
+    "python": "/home/tdt/anaconda3/envs/wb-mpc/bin/python",
+    "world_sha256": "c20c39198a4f37da671137ff47fbb757cd37b897dccbe5dcbc7da46f7ab33bef",
+    "source_sha256": {
+      "benchmark_compiled.py": "a32dcd1d6cac9089d85332c0be26f6230f8fb0bb62646c9ee07177913adada22",
+      "check_webots.py": "4aa63b3ae0705febaebd6dbfd270833c5180a3f56307d3713d99897ce0b6ec43",
+      "export_solver.py": "232d8c1f3b0a476c2804b751309c40ff91568b710536d3b37fbd78fb31aceff9",
+      "gait_adapter.py": "4d99f48d30d9c87fca25f1bfb7057adb801dc3f3d001aab314cf693655fe9fa6",
+      "main.py": "4558f23db1c123a40b1a401596ae0c9d5206ac7d8552abe5a90df1ce6336e788",
+      "mpc_bridge.py": "5aaaebb3912be1069dff53e6ee617fc021e372b494dece9e457a08136f165689",
+      "offline.py": "80707caf39d89c13d0f26bc7e66362784b4e0147453b9493746edf9a0a0b21fd",
+      "validate.py": "be5c1e01fb4c652b182a2ca15ee1fe02fc1ea8ba1d617ec8cda36d7332039638",
+      "wb_mpc_webots.py": "5c1cc8169caf327715aab80980e06b2427c07e3f283c3db80dedadddde6a07f2",
+      "world_model.py": "56cf4df8fc9be6d754c0c3e21fb5ad5d3590ba6d5d0bf1ff2ffc1754f47a38d6"
+    }
+  },
+  "solver_counts": {
+    "fatrop": 50
+  }
+}

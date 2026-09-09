@@ -1,0 +1,54 @@
+{
+  "model_checks": "passed",
+  "solves": [
+    {
+      "model": "whole_body_rnea",
+      "settings": {
+        "dynamics": "whole_body_rnea",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.08,
+        "dt_max": 0.08,
+        "solve_period": 0.08,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": [
+          300.0,
+          300.0,
+          300.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "arm_kd": [
+          12.0,
+          12.0,
+          12.0,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": ""
+      },
+      "variables": 1226,
+      "constraints": 1773,
+      "cv": 1.8498060718359632e-06,
+      "elapsed": 0.14467560598859563
+    }
+  ]
+}

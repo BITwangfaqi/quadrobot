@@ -1,0 +1,90 @@
+--- wb_mpc_locoman/optimization/ocp.py
++++ wb_mpc/optimization/ocp.py
+@@ -4,8 +4,8 @@
+ import osqp
+ from scipy import sparse
+ 
+-from utils.gait_sequence import *
+-from dynamics import DynamicsCentroidalVel
++from ..utils.gait_sequence import *
++from ..dynamics import DynamicsCentroidalVel
+ 
+ 
+ class OCP:
+@@ -118,7 +118,8 @@
+ 
+         if self.arm_ee_frame:
+             # Compute global velocity target for arm end-effector
+-            q_0 = self.x_init[:self.nq]
++            # centroidal_vel stores [h/m, q]; the other models store [q, v].
++            q_0 = self.x_init[6:] if type(self.dyn) == DynamicsCentroidalVel else self.x_init[:self.nq]
+             arm_pos_0 = self.dyn.get_frame_position(self.arm_ee_frame)(q_0)
+             base_pos_0 = self.dyn.get_base_position()(q_0)
+             base_rot_0 = self.dyn.get_base_rotation()(q_0)
+@@ -412,7 +413,10 @@
+ 
+                 # Solve
+                 start = time.time()
+-                sol_dx = self.osqp_prob.solve().x
++                qp_result = self.osqp_prob.solve()
++                if qp_result.info.status_val not in (1, 2) or qp_result.x is None:
++                    raise RuntimeError(f"OSQP failed: {qp_result.info.status}")
++                sol_dx = qp_result.x
+                 end = time.time()
+                 print("Solve time (ms): ", (end - start) * 1000)
+ 
+--- wb_mpc_locoman/optimization/ocp_centroidal_acc.py
++++ wb_mpc/optimization/ocp_centroidal_acc.py
+@@ -1,7 +1,7 @@
+ import numpy as np
+ import casadi as ca
+ 
+-from dynamics import DynamicsCentroidalAcc
++from ..dynamics import DynamicsCentroidalAcc
+ from .ocp import OCP
+ 
+ 
+--- wb_mpc_locoman/optimization/ocp_centroidal_vel.py
++++ wb_mpc/optimization/ocp_centroidal_vel.py
+@@ -1,7 +1,7 @@
+ import numpy as np
+ import casadi as ca
+ 
+-from dynamics import DynamicsCentroidalVel
++from ..dynamics import DynamicsCentroidalVel
+ from .ocp import OCP
+ 
+ 
+--- wb_mpc_locoman/optimization/ocp_whole_body_aba.py
++++ wb_mpc/optimization/ocp_whole_body_aba.py
+@@ -1,7 +1,7 @@
+ import numpy as np
+ import casadi as ca
+ 
+-from dynamics import DynamicsWholeBodyTorque
++from ..dynamics import DynamicsWholeBodyTorque
+ from .ocp import OCP
+ 
+ 
+--- wb_mpc_locoman/optimization/ocp_whole_body_acc.py
++++ wb_mpc/optimization/ocp_whole_body_acc.py
+@@ -1,7 +1,7 @@
+ import numpy as np
+ import casadi as ca
+ 
+-from dynamics import DynamicsWholeBodyAcc
++from ..dynamics import DynamicsWholeBodyAcc
+ from .ocp import OCP
+ 
+ 
+--- wb_mpc_locoman/optimization/ocp_whole_body_rnea.py
++++ wb_mpc/optimization/ocp_whole_body_rnea.py
+@@ -2,7 +2,7 @@
+ import casadi as ca
+ from scipy.interpolate import interp1d
+ 
+-from dynamics import DynamicsWholeBodyTorque
++from ..dynamics import DynamicsWholeBodyTorque
+ from .ocp import OCP
+ 
+ 

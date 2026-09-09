@@ -1,0 +1,21 @@
+{
+  "dynamics/__init__.py": "4f3a4f6a7459e274e081026213ed412f847c0d19fe4c331a18f1329a38cd8850",
+  "dynamics/dynamics.py": "ca2076f041de8963936af1677be109fcddb3812353db89f6d7ec755afd422117",
+  "dynamics/dynamics_centroidal_acc.py": "cd73151d57cde5669431a07e90de7ddc413f0bd9547178fd11d3e7672a249c20",
+  "dynamics/dynamics_centroidal_vel.py": "b9956575f13bd3725944f5750e0741c9c096b237fc7d694c50d6c3977cc1edab",
+  "dynamics/dynamics_whole_body_acc.py": "09d1ad2000357dade2e829768314ea33f8c840476d80abf1164191cdec04deac",
+  "dynamics/dynamics_whole_body_torque.py": "83657f16dc8dc7b74734780999aaff2be325338b8ddbbf3ac127a53391c97e21",
+  "optimization/__init__.py": "d6681472562e1d436ea2ab38a863c8dd43464b93089e9c630aaf8dc6314b5c9d",
+  "optimization/ocp.py": "493a5e007f0c6520a42dacc512f2cf82d1a724cbc0f6fd0fa1207e570b776213",
+  "optimization/ocp_centroidal_acc.py": "3e446bd33763b9c899e1df36e42389bc9fde3f39482d3ada67248d7a9e68217d",
+  "optimization/ocp_centroidal_vel.py": "75cf2e03330bc03364f5b522b645655091b17dca344f5f8005b11b975105be31",
+  "optimization/ocp_factory.py": "5f78d8f76ff4930bad9ab6eff4886cff32f8f1365fd0f095980a7cae8c429020",
+  "optimization/ocp_whole_body_aba.py": "4bd89603f03f447dbfd781338dc0fea6687d9380d534ec46fcb6c78641233589",
+  "optimization/ocp_whole_body_acc.py": "ac2dbf709530a5c1bc57f80a06b90dd4d9074dc5cc6ce3983e07c71bdb05809e",
+  "optimization/ocp_whole_body_rnea.py": "fa409aa4421f97bbbf444a23e9194d19a8ef3903943ffbe8c9969166847bc078",
+  "utils/debug_fatrop.py": "263fef77d4892802c733ff330a3d1725f4400088043ba7920602cad4ace594f8",
+  "utils/gait_sequence.py": "ca352d131681f372627d159109536f8175d76e0c5ab047160d61fa13d7959dfe",
+  "utils/robot.py": "a788560e138a60bb3247d135c4a6e29e650b3172a43faf22cef7d68cfe1f86e1",
+  "utils/visualization.py": "bb63ce993e38fe1bbf350c1415ab7499fb0eeb6cfde2142ec6e0042b7c201580",
+  "args.py": "8dae73b7bda52986ce1f7cf8f697974ddb5202e51e5b527e09444102ffafdf1b"
+}

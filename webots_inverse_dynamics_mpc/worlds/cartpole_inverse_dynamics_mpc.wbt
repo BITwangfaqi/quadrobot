@@ -1,0 +1,131 @@
+#VRML_SIM R2023a utf8
+
+WorldInfo {
+  info [
+    "Single-stage inverted pendulum controlled by a nonlinear inverse-dynamics MPC."
+    "The cart force is applied directly with LinearMotor.setForce()."
+  ]
+  title "Single Inverted Pendulum - Inverse Dynamics MPC"
+  basicTimeStep 10
+}
+Viewpoint {
+  orientation -0.17631453313917367 0.35408614358722484 0.9184422618343749 1.1708662958358547
+  position -3.2553863153426215 -6.288783239246643 3.160305110380597
+}
+Background {
+  skyColor [
+    0.72 0.8 0.9
+  ]
+}
+DirectionalLight {
+  direction -0.4 0.2 -1
+}
+Solid {
+  translation 0 0 -0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.65 0.67 0.7
+        roughness 1
+        metalness 0
+      }
+      geometry DEF FLOOR_BOX Box {
+        size 6 4 0.1
+      }
+    }
+  ]
+  name "floor"
+  boundingObject USE FLOOR_BOX
+}
+Robot {
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 1 0 0
+        minStop -2
+        maxStop 2
+      }
+      device [
+        LinearMotor {
+          name "cart_motor"
+          maxVelocity 20
+          minPosition -2
+          maxPosition 2
+          maxForce 40
+        }
+        PositionSensor {
+          name "cart_position"
+        }
+      ]
+      endPoint DEF CART Solid {
+        translation 0 0 0.16
+        children [
+          DEF CART_SHAPE Shape {
+            appearance PBRAppearance {
+              baseColor 0.15 0.45 0.85
+              roughness 0.65
+              metalness 0
+            }
+            geometry DEF CART_BOX Box {
+              size 0.3 0.2 0.16
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.08
+              axis 0 1 0
+              anchor 0 0 0.08
+            }
+            device [
+              PositionSensor {
+                name "pole_angle"
+              }
+            ]
+            endPoint DEF POLE Solid {
+              translation 0.0239744 0 0.3790405
+              rotation 0 1 0 0.08
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.9 0.16 0.12
+                    roughness 0.55
+                    metalness 0
+                  }
+                  geometry DEF POLE_BOX Box {
+                    size 0.04 0.04 0.6
+                  }
+                }
+                Transform {
+                  translation 0 0 0.3
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.95 0.75 0.05
+                        roughness 0.5
+                        metalness 0
+                      }
+                      geometry Sphere {
+                        radius 0.045
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject USE POLE_BOX
+              physics Physics {
+                density -1
+                mass 0.2
+              }
+            }
+          }
+        ]
+        boundingObject USE CART_BOX
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+  ]
+  controller "<extern>"
+}

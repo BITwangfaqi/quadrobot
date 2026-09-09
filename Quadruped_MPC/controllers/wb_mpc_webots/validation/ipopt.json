@@ -1,0 +1,40 @@
+{
+  "model_checks": "passed",
+  "solves": [
+    {
+      "model": "whole_body_rnea",
+      "settings": {
+        "dynamics": "whole_body_rnea",
+        "solver": "ipopt",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.015,
+        "dt_max": 0.08,
+        "solve_period": 0.015,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": 15.0,
+        "arm_kd": 0.8,
+        "include_base": true,
+        "include_acc": true,
+        "warm_start": true,
+        "sqp_iters": 2,
+        "qp_max_iter": 20,
+        "arm_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compiled_solver": ""
+      },
+      "variables": 1226,
+      "constraints": 1773,
+      "cv": 4.1737688315050814e-07,
+      "elapsed": 2.2275551929778885
+    }
+  ]
+}

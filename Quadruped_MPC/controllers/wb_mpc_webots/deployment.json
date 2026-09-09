@@ -1,0 +1,31 @@
+{
+  "dynamics": "whole_body_rnea",
+  "solver": "fatrop",
+  "nodes": 14,
+  "tau_nodes": 3,
+  "dt_min": 0.02,
+  "dt_max": 0.04,
+  "solve_period": 0.08,
+  "gait_period": 1.12,
+  "swing_height": 0.025,
+  "max_iter": 80,
+  "max_cv": 0.001,
+  "warm_start": true,
+  "include_base": true,
+  "include_acc": true,
+  "leg_kp": [
+    60,
+    60,
+    20
+  ],
+  "leg_kd": [
+    0.5,
+    0.5,
+    0.1
+  ],
+  "swing_vel_limits": [
+    0.02,
+    -0.04
+  ],
+  "compiled_solver": ".cache/deployed/solver_function.so"
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "initializes_only_fatrop",
+    "existing_compiled_library_loads",
+    "standing_solve_accepted",
+    "constraint_violation_rejected_without_retry",
+    "nonfinite_solution_rejected_without_retry",
+    "solver_exception_propagates_without_retry",
+    "other_build_settings_still_checked"
+  ],
+  "initialized_solvers": [
+    "fatrop"
+  ],
+  "standing_cv": 4.5082752958336414e-05,
+  "standing_elapsed_seconds": 0.8280344159575179,
+  "library_sha256": "8e907c0919f6a2ae7ba1fada83f7aef62cc229ae4c7fe928b4493b087e8ee544"
+}

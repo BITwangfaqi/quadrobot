@@ -1,0 +1,32 @@
+Offline validation result for webots_forward_dynamics_mpc
+==========================================================
+
+Command:
+  python3 tools/offline_validate.py
+
+Initial condition:
+  x          = 0.0 m
+  theta      = 0.08 rad
+  x_dot      = 0.0 m/s
+  theta_dot  = 0.0 rad/s
+
+Result after 15.0 s:
+  x          = -0.00793630 m
+  theta      =  0.00117657 rad
+  x_dot      = -0.03028531 m/s
+  theta_dot  =  0.00100333 rad/s
+
+Diagnostics:
+  max |theta|                  = 0.080000 rad
+  max |x|                      = 0.281523 m
+  mean MPC solve time          = 5.077 ms
+  max forward-dynamics residual= 8.882e-16
+
+PASS: forward-dynamics MPC stabilized the nonlinear plant.
+
+Note:
+The validation environment used here does not launch Webots. The MPC itself is
+fully solved with CasADi/IPOPT; the external plant is independently integrated
+with RK4 using the nonlinear cart-pole equations. In the Webots project, that
+external plant is replaced by Webots/ODE and the optimized force is applied by
+LinearMotor.setForce().

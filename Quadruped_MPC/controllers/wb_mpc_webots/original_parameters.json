@@ -1,0 +1,12 @@
+{
+  "dynamics": "whole_body_rnea",
+  "solver": "fatrop",
+  "nodes": 14,
+  "tau_nodes": 3,
+  "dt_min": 0.015,
+  "dt_max": 0.08,
+  "solve_period": 0.015,
+  "gait_period": 0.8,
+  "swing_height": 0.07,
+  "max_iter": 10
+}

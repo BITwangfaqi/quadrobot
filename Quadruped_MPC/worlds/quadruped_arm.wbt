@@ -8,7 +8,12 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 
 WorldInfo {
-  basicTimeStep 2
+  basicTimeStep 10
+  contactProperties [
+    ContactProperties {
+      bounce 0
+    }
+  ]
   defaultDamping Damping {
   }
 }

@@ -1,0 +1,125 @@
+{
+  "model_checks": "passed",
+  "solves": [
+    {
+      "model": "centroidal_vel",
+      "settings": {
+        "dynamics": "centroidal_vel",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.015,
+        "dt_max": 0.08,
+        "solve_period": 0.015,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": 15.0,
+        "arm_kd": 0.8
+      },
+      "variables": 938,
+      "constraints": 1532,
+      "cv": 1.5647263677912851e-06,
+      "elapsed": 0.14927581799565814
+    },
+    {
+      "model": "centroidal_acc",
+      "settings": {
+        "dynamics": "centroidal_acc",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.015,
+        "dt_max": 0.08,
+        "solve_period": 0.015,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": 15.0,
+        "arm_kd": 0.8
+      },
+      "variables": 1178,
+      "constraints": 1725,
+      "cv": 5.329372202701049e-06,
+      "elapsed": 0.22490478999679908
+    },
+    {
+      "model": "whole_body_acc",
+      "settings": {
+        "dynamics": "whole_body_acc",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.015,
+        "dt_max": 0.08,
+        "solve_period": 0.015,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": 15.0,
+        "arm_kd": 0.8
+      },
+      "variables": 1178,
+      "constraints": 1725,
+      "cv": 5.3293877453988205e-06,
+      "elapsed": 0.11246007800218649
+    },
+    {
+      "model": "whole_body_rnea",
+      "settings": {
+        "dynamics": "whole_body_rnea",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.015,
+        "dt_max": 0.08,
+        "solve_period": 0.015,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": 15.0,
+        "arm_kd": 0.8
+      },
+      "variables": 1226,
+      "constraints": 1773,
+      "cv": 5.39903379449206e-06,
+      "elapsed": 0.15173691799282096
+    },
+    {
+      "model": "whole_body_aba",
+      "settings": {
+        "dynamics": "whole_body_aba",
+        "solver": "fatrop",
+        "nodes": 14,
+        "tau_nodes": 3,
+        "dt_min": 0.015,
+        "dt_max": 0.08,
+        "solve_period": 0.015,
+        "gait_period": 0.8,
+        "swing_height": 0.04,
+        "max_iter": 80,
+        "max_cv": 0.001,
+        "leg_kp": 30.0,
+        "leg_kd": 1.0,
+        "arm_kp": 15.0,
+        "arm_kd": 0.8
+      },
+      "variables": 1094,
+      "constraints": 1641,
+      "cv": 1.5064974945078137e-05,
+      "elapsed": 0.4807949709938839
+    }
+  ]
+}

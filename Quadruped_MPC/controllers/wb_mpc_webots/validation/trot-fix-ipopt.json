@@ -1,0 +1,94 @@
+{
+  "run": "trot-1788772647976700682",
+  "manifest": {
+    "scenario": "trot",
+    "duration": 7.0,
+    "velocity": 0.0,
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "ipopt",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.02,
+      "dt_max": 0.04,
+      "solve_period": 0.08,
+      "gait_period": 1.12,
+      "swing_height": 0.025,
+      "swing_vel_limits": [
+        0.02,
+        -0.04
+      ],
+      "max_iter": 150,
+      "max_cv": 0.001,
+      "leg_kp": [
+        60.0,
+        60.0,
+        20.0
+      ],
+      "leg_kd": [
+        0.5,
+        0.5,
+        0.1
+      ],
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": ""
+    },
+    "basic_time_step_ms": 10,
+    "python": "/home/tdt/anaconda3/envs/wb-mpc/bin/python",
+    "world_sha256": "c20c39198a4f37da671137ff47fbb757cd37b897dccbe5dcbc7da46f7ab33bef",
+    "source_sha256": {
+      "check_webots.py": "f452ab1897919dad0b7ec358c607c84f657a5f9713a4558b561911b117fa7af0",
+      "export_solver.py": "78e33ec1968f87c577494874cb759c1e4ef3916fbcfa5f80fdf2076e250b007a",
+      "gait_adapter.py": "4d99f48d30d9c87fca25f1bfb7057adb801dc3f3d001aab314cf693655fe9fa6",
+      "main.py": "4558f23db1c123a40b1a401596ae0c9d5206ac7d8552abe5a90df1ce6336e788",
+      "mpc_bridge.py": "09c878415750aaf5a6c4ebe1d3409ab5242f7f66d8f80825b19cacbb2e465157",
+      "offline.py": "80707caf39d89c13d0f26bc7e66362784b4e0147453b9493746edf9a0a0b21fd",
+      "validate.py": "be5c1e01fb4c652b182a2ca15ee1fe02fc1ea8ba1d617ec8cda36d7332039638",
+      "wb_mpc_webots.py": "71d091a8a67b45b56644aabad9e58620358df4a403797fb1b1aefbbdc4811d33",
+      "world_model.py": "56cf4df8fc9be6d754c0c3e21fb5ad5d3590ba6d5d0bf1ff2ffc1754f47a38d6"
+    }
+  },
+  "result": {
+    "scenario": "trot",
+    "duration": 7.0,
+    "min_height": 0.32194566723613544,
+    "max_height": 0.3274922221838254,
+    "max_tilt": 0.005469250177189354,
+    "failure_fraction": 0.015873015873015872,
+    "torque_fraction": 0.9838056680161943,
+    "solves": 63,
+    "elapsed_p95": 3.211051226418931,
+    "deadline_misses": 63,
+    "passed": true,
+    "faults": 0,
+    "solve_interval_min": 0.040000000000000036,
+    "solve_interval_max": 0.08000000000000007,
+    "both_diagonal_contacts": true,
+    "leg_motion_range": 0.1711247214406799
+  }
+}

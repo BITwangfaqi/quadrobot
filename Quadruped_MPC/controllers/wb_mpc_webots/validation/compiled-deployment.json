@@ -1,0 +1,228 @@
+{
+  "scenario": "trot",
+  "duration": 15.0,
+  "min_height": 0.32217086498773523,
+  "max_height": 0.3278138408561083,
+  "max_tilt": 0.005205783605156888,
+  "failure_fraction": 0.0,
+  "torque_fraction": 1.0,
+  "solves": 163,
+  "elapsed_p95": 3.594174980913522,
+  "deadline_misses": 162,
+  "passed": true,
+  "faults": 0,
+  "solve_interval_min": 0.040000000000000036,
+  "solve_interval_max": 0.08000000000000096,
+  "both_diagonal_contacts": true,
+  "leg_motion_range": 0.17511066747063123,
+  "solver_counts": {
+    "fatrop": 149,
+    "ipopt_fallback": 14
+  },
+  "fatrop_complete_p95_seconds": 0.17120042943861336,
+  "complete_max_seconds": 3.957781672012061,
+  "manifest": {
+    "scenario": "trot",
+    "duration": 15.0,
+    "velocity": 0.0,
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "fatrop",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.02,
+      "dt_max": 0.04,
+      "solve_period": 0.08,
+      "gait_period": 1.12,
+      "swing_height": 0.025,
+      "swing_vel_limits": [
+        0.02,
+        -0.04
+      ],
+      "max_iter": 80,
+      "max_cv": 0.001,
+      "leg_kp": [
+        60,
+        60,
+        20
+      ],
+      "leg_kd": [
+        0.5,
+        0.5,
+        0.1
+      ],
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed/solver_function.so",
+      "ipopt_fallback": true
+    },
+    "basic_time_step_ms": 10,
+    "python": "/home/tdt/anaconda3/envs/wb-mpc/bin/python",
+    "world_sha256": "c20c39198a4f37da671137ff47fbb757cd37b897dccbe5dcbc7da46f7ab33bef",
+    "source_sha256": {
+      "benchmark_compiled.py": "c58af972b9a10da7b1319621408896ebac4f60951a69a12718782e2f15e95f51",
+      "check_webots.py": "087980572972899861725a802b44e0e08b9a63484102db75dac78bed7a88b514",
+      "export_solver.py": "5a3916a3cc6fa3f0ef499d12c34a4c2687264f86206a66bd21aedcf93ff4b88a",
+      "gait_adapter.py": "4d99f48d30d9c87fca25f1bfb7057adb801dc3f3d001aab314cf693655fe9fa6",
+      "main.py": "4558f23db1c123a40b1a401596ae0c9d5206ac7d8552abe5a90df1ce6336e788",
+      "mpc_bridge.py": "899c1202d06480cb15b6cea83d06b031a55fad68fca1f73c40916ca340621836",
+      "offline.py": "80707caf39d89c13d0f26bc7e66362784b4e0147453b9493746edf9a0a0b21fd",
+      "validate.py": "be5c1e01fb4c652b182a2ca15ee1fe02fc1ea8ba1d617ec8cda36d7332039638",
+      "wb_mpc_webots.py": "038471de48289851436fe75ded68e94cc91e8518401a81a1700f3f438ab3b869",
+      "world_model.py": "56cf4df8fc9be6d754c0c3e21fb5ad5d3590ba6d5d0bf1ff2ffc1754f47a38d6"
+    }
+  },
+  "build": {
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "fatrop",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.02,
+      "dt_max": 0.04,
+      "solve_period": 0.08,
+      "gait_period": 1.12,
+      "swing_height": 0.025,
+      "swing_vel_limits": [
+        0.02,
+        -0.04
+      ],
+      "max_iter": 80,
+      "max_cv": 0.001,
+      "leg_kp": [
+        60,
+        60,
+        20
+      ],
+      "leg_kd": [
+        0.5,
+        0.5,
+        0.1
+      ],
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": "",
+      "ipopt_fallback": true
+    },
+    "model_signature": "9f93ed9dd14f23e8aa52478da953a53a5351fc6e066798ebd7e4eb4e2b82be86",
+    "nominal": [
+      0.00012762672088406993,
+      0.00010803758731940143,
+      0.32390476052903155,
+      -0.00016651032745955928,
+      0.00019779293361787801,
+      4.9045834889558985e-08,
+      0.9999999665761313,
+      2.9101249740041344e-06,
+      -1.2565495586258635e-06,
+      4.930245906690887e-06,
+      -3.0824405454765724e-06,
+      -1.337668933842906e-06,
+      5.13610469271388e-06,
+      2.8752658109819387e-06,
+      -1.2411209978529873e-06,
+      4.875338499637626e-06,
+      -2.7058004050672935e-06,
+      -1.1692141802422615e-06,
+      4.641959080926855e-06,
+      1.3090289687127608e-06,
+      -2.6171357792037497e-06,
+      4.562177637416479e-06,
+      4.159952637810881e-07
+    ],
+    "casadi": "3.6.7",
+    "input_names": [
+      "i0",
+      "i1",
+      "i2",
+      "i3",
+      "i4",
+      "i5",
+      "i6",
+      "i7",
+      "i8",
+      "i9",
+      "i10",
+      "i11",
+      "i12",
+      "i13",
+      "i14"
+    ],
+    "functions": [
+      "solver_function",
+      "webots_decode",
+      "g_data"
+    ],
+    "variables": 1242,
+    "constraints": 1805,
+    "compile_seconds": 145.77955161902355,
+    "compiler_command": [
+      "cc",
+      "-O0",
+      "-fPIC",
+      "-shared",
+      "-I/home/tdt/anaconda3/envs/wb-mpc/include",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed-o0/solver_function.c",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed-o0/webots_decode.c",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed-o0/g_data.c",
+      "-L/home/tdt/anaconda3/envs/wb-mpc/lib",
+      "-Wl,-rpath,/home/tdt/anaconda3/envs/wb-mpc/lib",
+      "-lfatrop",
+      "-lblasfeo",
+      "-lm",
+      "-o",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed-o0/solver_function.so"
+    ],
+    "library_sha256": "8e907c0919f6a2ae7ba1fada83f7aef62cc229ae4c7fe928b4493b087e8ee544",
+    "equivalence_passed": true
+  },
+  "run": "validation/runs/trot-1788946307331379031"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "model": "centroidal_vel",
+    "include_base": false,
+    "cv": 1.630900658556838e-06
+  },
+  {
+    "model": "centroidal_acc",
+    "include_base": false,
+    "cv": 2.917068899098591e-07
+  },
+  {
+    "model": "whole_body_acc",
+    "include_base": false,
+    "cv": 2.9170688986258786e-07
+  },
+  {
+    "model": "whole_body_rnea",
+    "include_acc": false,
+    "solver": "ipopt",
+    "cv": 0.00021072610381489554
+  }
+]

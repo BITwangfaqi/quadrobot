@@ -1,0 +1,225 @@
+{
+  "scenario": "trot",
+  "duration": 30.0,
+  "min_height": 0.3209001113898528,
+  "max_height": 0.3288094986337886,
+  "max_tilt": 0.008962562259517526,
+  "failure_fraction": 0.0,
+  "torque_fraction": 1.0,
+  "solves": 351,
+  "elapsed_p95": 0.11098134898929857,
+  "deadline_misses": 307,
+  "passed": true,
+  "faults": 0,
+  "solve_interval_min": 0.040000000000000036,
+  "solve_interval_max": 0.08000000000000185,
+  "both_diagonal_contacts": true,
+  "leg_motion_range": 0.1880574412724887,
+  "run": "validation/runs/trot-1788948387478188099",
+  "manifest": {
+    "scenario": "trot",
+    "duration": 30.0,
+    "velocity": 0.0,
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "fatrop",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.02,
+      "dt_max": 0.04,
+      "solve_period": 0.08,
+      "gait_period": 1.12,
+      "swing_height": 0.025,
+      "swing_vel_limits": [
+        0.02,
+        -0.04
+      ],
+      "max_iter": 80,
+      "max_cv": 0.001,
+      "leg_kp": [
+        60,
+        60,
+        20
+      ],
+      "leg_kd": [
+        0.5,
+        0.5,
+        0.1
+      ],
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/deployed/solver_function.so"
+    },
+    "basic_time_step_ms": 10,
+    "python": "/home/tdt/anaconda3/envs/wb-mpc/bin/python",
+    "world_sha256": "c20c39198a4f37da671137ff47fbb757cd37b897dccbe5dcbc7da46f7ab33bef",
+    "source_sha256": {
+      "benchmark_compiled.py": "a32dcd1d6cac9089d85332c0be26f6230f8fb0bb62646c9ee07177913adada22",
+      "check_webots.py": "4aa63b3ae0705febaebd6dbfd270833c5180a3f56307d3713d99897ce0b6ec43",
+      "export_solver.py": "232d8c1f3b0a476c2804b751309c40ff91568b710536d3b37fbd78fb31aceff9",
+      "gait_adapter.py": "4d99f48d30d9c87fca25f1bfb7057adb801dc3f3d001aab314cf693655fe9fa6",
+      "main.py": "4558f23db1c123a40b1a401596ae0c9d5206ac7d8552abe5a90df1ce6336e788",
+      "mpc_bridge.py": "5aaaebb3912be1069dff53e6ee617fc021e372b494dece9e457a08136f165689",
+      "offline.py": "80707caf39d89c13d0f26bc7e66362784b4e0147453b9493746edf9a0a0b21fd",
+      "validate.py": "be5c1e01fb4c652b182a2ca15ee1fe02fc1ea8ba1d617ec8cda36d7332039638",
+      "wb_mpc_webots.py": "5c1cc8169caf327715aab80980e06b2427c07e3f283c3db80dedadddde6a07f2",
+      "world_model.py": "56cf4df8fc9be6d754c0c3e21fb5ad5d3590ba6d5d0bf1ff2ffc1754f47a38d6"
+    }
+  },
+  "build": {
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "fatrop",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.02,
+      "dt_max": 0.04,
+      "solve_period": 0.08,
+      "gait_period": 1.12,
+      "swing_height": 0.025,
+      "swing_vel_limits": [
+        0.02,
+        -0.04
+      ],
+      "max_iter": 80,
+      "max_cv": 0.001,
+      "leg_kp": [
+        60,
+        60,
+        20
+      ],
+      "leg_kd": [
+        0.5,
+        0.5,
+        0.1
+      ],
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": ""
+    },
+    "model_signature": "fbdd67433ec195ca63c3c24052fce5c5b9ab680bca3501f152b52875a5c15c76",
+    "nominal": [
+      0.0005100135136824734,
+      0.00011083717067444689,
+      0.3239045947189302,
+      -0.00016669116058829075,
+      0.00020444518052018613,
+      -9.426838704330043e-08,
+      0.9999999652081075,
+      2.918192811318434e-06,
+      1.2580256628094634e-06,
+      4.936703015126704e-06,
+      -3.0901706500330306e-06,
+      -1.3334234818529467e-06,
+      5.141727697422592e-06,
+      2.8746712059154463e-06,
+      1.2431320314037737e-06,
+      4.868711227642688e-06,
+      -2.703983073892857e-06,
+      -1.1660514118716492e-06,
+      4.63620820692698e-06,
+      1.2877209914996785e-06,
+      0.14999742386087073,
+      -0.29999557751941275,
+      4.053752288517415e-07
+    ],
+    "casadi": "3.6.7",
+    "input_names": [
+      "i0",
+      "i1",
+      "i2",
+      "i3",
+      "i4",
+      "i5",
+      "i6",
+      "i7",
+      "i8",
+      "i9",
+      "i10",
+      "i11",
+      "i12",
+      "i13",
+      "i14"
+    ],
+    "functions": [
+      "solver_function",
+      "webots_decode",
+      "g_data"
+    ],
+    "variables": 1242,
+    "constraints": 1805,
+    "compile_seconds": 138.34898624703055,
+    "compiler_command": [
+      "cc",
+      "-O0",
+      "-fPIC",
+      "-shared",
+      "-I/home/tdt/anaconda3/envs/wb-mpc/include",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/interior-pose/solver_function.c",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/interior-pose/webots_decode.c",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/interior-pose/g_data.c",
+      "-L/home/tdt/anaconda3/envs/wb-mpc/lib",
+      "-Wl,-rpath,/home/tdt/anaconda3/envs/wb-mpc/lib",
+      "-lfatrop",
+      "-lblasfeo",
+      "-lm",
+      "-o",
+      "/home/tdt/quadrobot/Quadruped_MPC/controllers/wb_mpc_webots/.cache/interior-pose/solver_function.so"
+    ],
+    "library_sha256": "7ddde64dc7ca9a62bcb7de44882ff759d526e26cf4d933c863d359e73c4c3054",
+    "equivalence_passed": true
+  },
+  "solver_counts": {
+    "fatrop": 351
+  },
+  "elapsed_mean": 0.0913065685675031,
+  "elapsed_max": 0.1720658559934236
+}

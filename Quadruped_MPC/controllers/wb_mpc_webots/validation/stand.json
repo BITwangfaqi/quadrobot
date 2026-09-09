@@ -1,0 +1,75 @@
+{
+  "run": "manual-1788768810513593326",
+  "manifest": {
+    "scenario": "manual",
+    "duration": 5.0,
+    "velocity": 0.0,
+    "settings": {
+      "dynamics": "whole_body_rnea",
+      "solver": "fatrop",
+      "nodes": 14,
+      "tau_nodes": 3,
+      "dt_min": 0.015,
+      "dt_max": 0.08,
+      "solve_period": 0.015,
+      "gait_period": 0.8,
+      "swing_height": 0.04,
+      "max_iter": 80,
+      "max_cv": 0.001,
+      "leg_kp": 30.0,
+      "leg_kd": 1.0,
+      "arm_kp": [
+        300.0,
+        300.0,
+        300.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "arm_kd": [
+        12.0,
+        12.0,
+        12.0,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "include_base": true,
+      "include_acc": true,
+      "warm_start": true,
+      "sqp_iters": 2,
+      "qp_max_iter": 20,
+      "arm_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "compiled_solver": ""
+    },
+    "python": "/home/tdt/anaconda3/envs/wb-mpc/bin/python",
+    "world_sha256": "4cad7cd48f41e1088faaac4eaed11346e8fff2f49697c0626a55809887a27eab",
+    "source_sha256": {
+      "check_webots.py": "71194e3976d951898c4b12739dea4a3baa55cf1534508b26f360ebc038dadb99",
+      "export_solver.py": "78e33ec1968f87c577494874cb759c1e4ef3916fbcfa5f80fdf2076e250b007a",
+      "main.py": "4558f23db1c123a40b1a401596ae0c9d5206ac7d8552abe5a90df1ce6336e788",
+      "mpc_bridge.py": "f876e5cb9df74c89b4c5a956be409970a50ed3f90c060420d9ee7935ddcb4ec9",
+      "offline.py": "80707caf39d89c13d0f26bc7e66362784b4e0147453b9493746edf9a0a0b21fd",
+      "validate.py": "c813f11341871e1834f1aa0352c550c6761718b9d4cdda50b61d068169814b1f",
+      "wb_mpc_webots.py": "e02a3ce1415478c15766c6cbc37a618db03664cd5b6023ec90e3f3d3ad22df20",
+      "world_model.py": "fba1c751abdd428f1f418b357d340c6c0b62e943c44f54b132effe235be7fbd3"
+    }
+  },
+  "result": {
+    "scenario": "manual",
+    "duration": 5.0,
+    "min_height": 0.32571854600481354,
+    "max_height": 0.32572862045713646,
+    "max_tilt": 0.00032194073765154884,
+    "failure_fraction": 0.0,
+    "torque_fraction": 1.0,
+    "solves": 200,
+    "elapsed_p95": 0.10100744901283176,
+    "deadline_misses": 200,
+    "passed": true
+  }
+}

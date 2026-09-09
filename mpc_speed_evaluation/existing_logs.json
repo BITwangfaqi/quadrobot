@@ -1,0 +1,54 @@
+{
+  "forward_webots": {
+    "rows": 4317,
+    "solves": 2159,
+    "duration": 43.160000000000004,
+    "first_ms": 18.087714,
+    "mean_ms": 2.763618847544022,
+    "median_ms": 2.6276450000000002,
+    "p95_ms": 3.5706100000000007,
+    "p99_ms": 4.177428389999999,
+    "max_ms": 5.498396,
+    "over20": 0,
+    "failures": 0
+  },
+  "forward_offline_validation": {
+    "rows": 7501,
+    "solves": 751,
+    "duration": 15.0,
+    "first_ms": 465.5221110000127,
+    "mean_ms": 4.463366321333638,
+    "median_ms": 4.246979000001261,
+    "p95_ms": 5.293648500010306,
+    "p99_ms": 6.568838019998393,
+    "max_ms": 25.529231000007258,
+    "over20": 3,
+    "failures": "not recorded"
+  },
+  "inverse_webots": {
+    "rows": 4307,
+    "solves": 2154,
+    "duration": 43.06,
+    "first_ms": 14.992716,
+    "mean_ms": 3.0630746683697168,
+    "median_ms": 2.811937,
+    "p95_ms": 4.185778999999999,
+    "p99_ms": 6.484825240000001,
+    "max_ms": 17.766599,
+    "over20": 0,
+    "failures": 0
+  },
+  "inverse_offline_validation": {
+    "rows": 7501,
+    "solves": 751,
+    "duration": 15.0,
+    "first_ms": 13.417455018498003,
+    "mean_ms": 2.6605062008990594,
+    "median_ms": 2.60939248255454,
+    "p95_ms": 2.984404342714697,
+    "p99_ms": 3.3259726886171848,
+    "max_ms": 3.93804901978001,
+    "over20": 0,
+    "failures": "not recorded"
+  }
+}

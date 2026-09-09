@@ -1,0 +1,22 @@
+Verified in the generation environment with:
+  python tools/offline_validate.py
+
+Result:
+  initial theta      : +0.0800 rad
+  final state        : [-0.00745502, 0.00116222, -0.03063159, 0.00101995]
+  max |theta|        : 0.080000 rad
+  max |x|            : 0.282533 m
+  mean MPC solve     : 15.814 ms
+  max ID residual    : 1.041e-16
+  status             : PASS
+
+The Webots world itself was not executed in this environment because the Webots executable is not installed here. The Python files were syntax-checked, and the same nonlinear MPC was validated against an independent forward-dynamics plant simulation.
+
+2026-09-09: Webots R2023a world loading check on the local workstation
+  Fixed WorldInfo.gravity: scalar 9.81 with coordinateSystem "ENU".
+  Replaced unavailable external background/floor PROTOs with built-in nodes.
+  Loaded a temporary copy using a Supervisor probe, preserving the robot and
+  WorldInfo; verified CART, POLE and cart_motor, then advanced a physics step.
+  Result: PASS, no world parsing or missing-PROTO errors.
+  Log: /tmp/cartpole-world-check-q7eul3qr/webots.log
+  This checks world loading and physics startup, not MPC closed-loop stability.
